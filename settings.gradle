@@ -8,3 +8,8 @@
  */
 
 rootProject.name = 'clean-architecture'
+include 'application:core'
+include 'application:configuration'
+include 'application:dataproviders'
+include 'application:entrypoints'
+

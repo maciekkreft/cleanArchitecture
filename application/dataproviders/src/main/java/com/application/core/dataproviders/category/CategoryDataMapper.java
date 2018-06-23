@@ -4,7 +4,10 @@ import com.application.core.category.CategoryDataGateway;
 import com.application.core.category.CategoryEntity;
 import lombok.AllArgsConstructor;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 @AllArgsConstructor
 public class CategoryDataMapper implements CategoryDataGateway {
@@ -21,8 +24,20 @@ public class CategoryDataMapper implements CategoryDataGateway {
         return categoryRepository.findByCode(code) != null;
     }
 
-    private CategoryEntity toEntity(Category r) {
-        return new CategoryEntity(r.getId(), r.getCode(), r.getName());
+    @Override
+    public List<CategoryEntity> findAllCategories() {
+        return toEntity(categoryRepository.findAll());
+    }
+
+
+    private List<CategoryEntity> toEntity(Iterable<Category> categories) {
+       return StreamSupport.stream(categories.spliterator(), false)
+               .map(c -> toEntity(c))
+               .collect(Collectors.toList());
+    }
+
+    private CategoryEntity toEntity(Category c) {
+        return new CategoryEntity(c.getId(), c.getCode(), c.getName());
     }
 
     private Category toRow(CategoryEntity category) {

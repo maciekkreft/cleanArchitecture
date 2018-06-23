@@ -7,15 +7,12 @@ import com.application.core.poll.PollUseCase;
 import com.application.entrypoints.rest.exceptions.ConflictException;
 import com.application.entrypoints.rest.exceptions.NotFoundException;
 import lombok.AllArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Marker;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Slf4j
 @AllArgsConstructor
 @RestController
 @RequestMapping("/polls")
@@ -32,11 +29,9 @@ public class PollController {
         try {
             return toDto(pollUseCase.addPoll(toEntity(dto)));
         } catch (PollAlreadyExists e) {
-            log.error(Marker.ANY_MARKER, e);
-            throw new ConflictException(e.getMessage());
+            throw new ConflictException(e);
         } catch (CategoryNotFoundException e) {
-            log.error(Marker.ANY_MARKER, e);
-            throw new NotFoundException(e.getMessage());
+            throw new NotFoundException(e);
         }
     }
 

@@ -5,30 +5,37 @@ import com.application.core.category.CategoryEntity;
 import com.application.core.category.CategoryUseCase;
 import com.application.entrypoints.rest.exceptions.ConflictException;
 import lombok.AllArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Marker;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
-@Slf4j
 @AllArgsConstructor
 @RestController
 @RequestMapping("/categories")
 public class CategoryController {
-    private final CategoryUseCase pollUseCase;
+    private final CategoryUseCase categoryUseCase;
 
     @PostMapping
     public GetCategoryDto addCategory(@RequestBody @Valid AddCategoryDto dto) {
         try {
-            return toDto(pollUseCase.addCategory(toEntity(dto)));
+            return toDto(categoryUseCase.addCategory(toEntity(dto)));
         } catch (CategoryAlreadyExists e) {
-            log.error(Marker.ANY_MARKER, e);
-            throw new ConflictException(e.getMessage());
+            throw new ConflictException(e);
         }
+    }
+
+    @GetMapping
+    List<GetCategoryDto> listAllCategories() {
+        return toDto(categoryUseCase.listAllCategories());
+    }
+
+    private List<GetCategoryDto> toDto(Iterable<CategoryEntity> categories) {
+        return StreamSupport.stream(categories.spliterator(), false)
+                .map(c -> toDto(c))
+                .collect(Collectors.toList());
     }
 
     private GetCategoryDto toDto(CategoryEntity category) {

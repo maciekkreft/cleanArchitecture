@@ -2,6 +2,7 @@ package com.application.core.dataproviders.sheet;
 
 import com.application.core.dataproviders.IdRow;
 import com.application.core.dataproviders.poll.Poll;
+import com.application.core.dataproviders.user.User;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;

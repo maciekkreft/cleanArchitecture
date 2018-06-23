@@ -26,6 +26,9 @@ public class Sheet extends IdRow {
     @JoinColumn(nullable = false, updatable = false)
     private final User user;
 
+    @Column(nullable = false)
+    final Long version;
+
     @ElementCollection
     private final List<Answer> answers;
 

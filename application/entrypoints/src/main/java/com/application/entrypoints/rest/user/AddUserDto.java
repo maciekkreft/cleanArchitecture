@@ -10,7 +10,7 @@ import javax.validation.constraints.NotNull;
 @Data
 @NoArgsConstructor(force = true)
 @AllArgsConstructor
-public class AddUserDto {
+class AddUserDto {
     @NotNull
     @NotBlank
     private final String email;

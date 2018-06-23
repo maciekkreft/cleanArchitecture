@@ -12,7 +12,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor(force = true)
 @AllArgsConstructor
-public class AddPollDto {
+class AddPollDto {
     @NotNull
     @NotBlank
     private final String code;

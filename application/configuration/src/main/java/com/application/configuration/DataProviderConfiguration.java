@@ -4,6 +4,8 @@ import com.application.core.dataproviders.category.CategoryDataMapper;
 import com.application.core.dataproviders.category.CategoryRepository;
 import com.application.core.dataproviders.poll.PollDataMapper;
 import com.application.core.dataproviders.poll.PollRepository;
+import com.application.core.dataproviders.sheet.SheetDataMapper;
+import com.application.core.dataproviders.sheet.SheetRepository;
 import com.application.core.dataproviders.user.UserDataMapper;
 import com.application.core.dataproviders.user.UserRepository;
 import lombok.AllArgsConstructor;
@@ -24,6 +26,9 @@ public class DataProviderConfiguration {
     @Autowired
     private final UserRepository userRepository;
 
+    @Autowired
+    private final SheetRepository sheetRepository;
+
     @Bean
     public PollDataMapper pollDataMapper() {
         return new PollDataMapper(pollRepository, categoryRepository);
@@ -37,6 +42,11 @@ public class DataProviderConfiguration {
     @Bean
     public UserDataMapper userDataMapper() {
         return new UserDataMapper(userRepository);
+    }
+
+    @Bean
+    public SheetDataMapper sheetDataMapper() {
+        return new SheetDataMapper(sheetRepository, pollRepository, userRepository);
     }
 
 }

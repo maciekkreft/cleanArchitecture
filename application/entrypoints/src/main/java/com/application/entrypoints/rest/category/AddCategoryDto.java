@@ -10,7 +10,7 @@ import javax.validation.constraints.NotNull;
 @Data
 @NoArgsConstructor(force = true)
 @AllArgsConstructor
-public class AddCategoryDto {
+class AddCategoryDto {
     @NotNull
     @NotBlank
     private final String code;

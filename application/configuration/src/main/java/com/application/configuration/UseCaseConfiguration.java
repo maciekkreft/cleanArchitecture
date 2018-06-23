@@ -4,6 +4,8 @@ import com.application.core.category.CategoryDataGateway;
 import com.application.core.category.CategoryUseCase;
 import com.application.core.poll.PollDataGateway;
 import com.application.core.poll.PollUseCase;
+import com.application.core.sheet.SheetDataGateway;
+import com.application.core.sheet.SheetUseCase;
 import com.application.core.user.UserDataGateway;
 import com.application.core.user.UserUseCase;
 import org.springframework.context.annotation.Bean;
@@ -24,5 +26,13 @@ public class UseCaseConfiguration {
     @Bean
     public UserUseCase userUseCase(UserDataGateway userDataGateway) {
         return new UserUseCase(userDataGateway);
+    }
+
+    @Bean
+    public SheetUseCase sheetUseCase(SheetDataGateway sheetDataGateway,
+                                     PollDataGateway pollDataGateway,
+                                     UserDataGateway userDataGateway
+    ) {
+        return new SheetUseCase(sheetDataGateway, pollDataGateway, userDataGateway);
     }
 }

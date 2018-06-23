@@ -1,4 +1,4 @@
-package com.application.entrypoints.rest.category;
+package com.application.entrypoints.rest.sheet;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -6,20 +6,29 @@ import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Data
 @NoArgsConstructor(force = true)
 @AllArgsConstructor
-class GetCategoryDto {
+class GetSheetDto {
     @NotNull
     @NotBlank
     private final Long id;
 
     @NotNull
     @NotBlank
-    private final String code;
+    private final String userEmail;
 
     @NotNull
     @NotBlank
-    private final String name;
+    private final String pollCode;
+
+    @NotNull
+    @NotBlank
+    private final Long version;
+
+    @NotNull
+    @NotBlank
+    private final List<String> answers;
 }

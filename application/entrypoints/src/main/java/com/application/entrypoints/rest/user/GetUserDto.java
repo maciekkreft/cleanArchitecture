@@ -10,7 +10,7 @@ import javax.validation.constraints.NotNull;
 @Data
 @NoArgsConstructor(force = true)
 @AllArgsConstructor
-public class GetUserDto {
+class GetUserDto {
     @NotNull
     @NotBlank
     private final Long id;

@@ -1,8 +1,7 @@
 package com.application.configuration;
 
-import com.application.core.dataproviders.book.BookDataMapper;
-import com.application.core.dataproviders.book.BookRepository;
-import com.application.core.dataproviders.poll.CategoryRepository;
+import com.application.core.dataproviders.category.CategoryDataMapper;
+import com.application.core.dataproviders.category.CategoryRepository;
 import com.application.core.dataproviders.poll.PollDataMapper;
 import com.application.core.dataproviders.poll.PollRepository;
 import lombok.AllArgsConstructor;
@@ -13,8 +12,6 @@ import org.springframework.context.annotation.Configuration;
 @AllArgsConstructor
 @Configuration
 public class DataProviderConfiguration {
-    @Autowired
-    private final BookRepository bookRepository;
 
     @Autowired
     private final PollRepository pollRepository;
@@ -23,13 +20,13 @@ public class DataProviderConfiguration {
     private final CategoryRepository categoryRepository;
 
     @Bean
-    public BookDataMapper bookDataGateway() {
-        return new BookDataMapper(bookRepository);
+    public PollDataMapper pollDataMapper() {
+        return new PollDataMapper(pollRepository, categoryRepository);
     }
 
     @Bean
-    public PollDataMapper pollDataMapper() {
-        return new PollDataMapper(pollRepository, categoryRepository);
+    public CategoryDataMapper categoryDataMapper() {
+        return new CategoryDataMapper(categoryRepository);
     }
 
 }

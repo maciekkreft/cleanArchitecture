@@ -1,11 +1,10 @@
-package com.application.core.poll;
+package com.application.core.category;
 
 import lombok.Data;
 
 @Data
-public class Poll {
+public class CategoryEntity {
     private final Long id;
     private final String code;
     private final String name;
-    private final String categoryCode;
 }

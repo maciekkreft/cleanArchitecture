@@ -1,5 +1,6 @@
 package com.application.core.poll;
 
+import com.application.core.category.CategoryDataGateway;
 import lombok.AllArgsConstructor;
 
 import java.util.List;
@@ -7,16 +8,20 @@ import java.util.List;
 @AllArgsConstructor
 public class PollUseCase {
     private final PollDataGateway pollDataGateway;
+    private final CategoryDataGateway categoryDataGateway;
 
-    public List<Poll> listAllPolls() {
+    public List<PollEntity> listAllPolls() {
         return pollDataGateway.getAllBooks();
     }
 
-    public Poll addPoll(Poll poll) {
+    public PollEntity addPoll(PollEntity poll) {
+        if (!categoryDataGateway.exists(poll.getCategoryCode())) {
+            throw new CategoryNotFoundException(poll.getCategoryCode());
+        }
+        if (pollDataGateway.exists(poll.getCode())) {
+            throw new PollAlreadyExists(poll.getCode());
+        }
         return pollDataGateway.addPoll(poll);
     }
 
-    public Category addCategory(Category category) {
-        return pollDataGateway.addCategory(category);
-    }
 }

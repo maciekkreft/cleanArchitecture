@@ -1,4 +1,4 @@
-package com.application.core.dataproviders.poll;
+package com.application.core.dataproviders.category;
 
 import com.application.core.dataproviders.IdRow;
 import lombok.Data;
@@ -8,24 +8,18 @@ import lombok.RequiredArgsConstructor;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 
 @Data
 @EqualsAndHashCode(callSuper = false)
 @NoArgsConstructor(force = true)
 @RequiredArgsConstructor
 @Entity
-public class PollRow extends IdRow {
+public class Category extends IdRow {
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private final String code;
 
     @Column(nullable = false)
     private final String name;
-
-    @ManyToOne(optional = false)
-    @JoinColumn(nullable = false, updatable = false)
-    private final CategoryRow category;
 
 }

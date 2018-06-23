@@ -1,8 +1,9 @@
 package com.application.core.dataproviders.poll;
 
-import com.application.core.poll.Category;
-import com.application.core.poll.Poll;
+import com.application.core.dataproviders.category.Category;
+import com.application.core.dataproviders.category.CategoryRepository;
 import com.application.core.poll.PollDataGateway;
+import com.application.core.poll.PollEntity;
 import lombok.AllArgsConstructor;
 
 import java.util.List;
@@ -16,40 +17,44 @@ public class PollDataMapper implements PollDataGateway {
     private final CategoryRepository categoryRepository;
 
     @Override
-    public List<Poll> getAllBooks() {
+    public List<PollEntity> getAllBooks() {
         return toEntity(pollRepository.findAll());
     }
 
     @Override
-    public Poll addPoll(Poll poll) {
+    public PollEntity addPoll(PollEntity poll) {
         return toEntity(pollRepository.save(toRow(poll)));
     }
 
     @Override
-    public Category addCategory(Category category) {
-        return toEntity(categoryRepository.save(toRow(category)));
+    public boolean exists(String pollCode) {
+        return pollRepository.existsByCode(pollCode);
     }
 
-    private Poll toEntity(PollRow r) {
-        return new Poll(r.getId(), r.getCode(), r.getName(), r.getCategory().getCode());
+    private PollEntity toEntity(Poll r) {
+        List<String> questions = r.getQuestions().stream()
+                .map(q -> q.getContent())
+                .collect(Collectors.toList());
+        return new PollEntity(
+                r.getId(),
+                r.getCode(),
+                r.getName(),
+                r.getCategory().getCode(),
+                questions);
     }
 
-    private Category toEntity(CategoryRow r) {
-        return new Category(r.getId(), r.getCode(), r.getName());
-    }
-
-    private List<Poll> toEntity(Iterable<PollRow> pollRows) {
+    private List<PollEntity> toEntity(Iterable<Poll> pollRows) {
         return StreamSupport.stream(pollRows.spliterator(), false)
                 .map(r -> toEntity(r))
                 .collect(Collectors.toList());
     }
 
-    private PollRow toRow(Poll poll) {
-        CategoryRow categoryRow = categoryRepository.findByCode(poll.getCategoryCode());
-        return new PollRow(poll.getCode(), poll.getName(), categoryRow);
+    private Poll toRow(PollEntity poll) {
+        Category categoryRow = categoryRepository.findByCode(poll.getCategoryCode());
+        List<Question> questions = poll.getQuestions().stream()
+                .map(s -> new Question(s))
+                .collect(Collectors.toList());
+        return new Poll(poll.getCode(), poll.getName(), categoryRow, questions);
     }
 
-    private CategoryRow toRow(Category category) {
-        return new CategoryRow(category.getCode(), category.getName());
-    }
 }

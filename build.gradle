@@ -19,6 +19,7 @@ subprojects {
             configuration: [
                     "org.springframework.boot:spring-boot-starter-web:${springboot_version}",
                     "org.springframework.boot:spring-boot-starter-data-jpa:${springboot_version}",
+                    "org.springframework.boot:spring-boot-devtools:${springboot_version}",
                     "com.h2database:h2:${h2_version}"
             ],
 
@@ -30,12 +31,10 @@ subprojects {
             dataproviders: [
                     "org.springframework.boot:spring-boot-starter-data-jpa:${springboot_version}",
                     "com.h2database:h2:${h2_version}",
-//                    "org.springframework:spring-context:${spring_version}"
             ],
 
             entrypoints  : [
                     "org.springframework.boot:spring-boot-starter-web:${springboot_version}",
-//                    "org.springframework:spring-web:${spring_version}"
                     "org.projectlombok:lombok:${lombok_version}"
             ],
     ]

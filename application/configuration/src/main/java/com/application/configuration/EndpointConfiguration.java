@@ -1,7 +1,7 @@
 package com.application.configuration;
 
-import com.application.core.book.GetBookUseCase;
-import com.application.entrypoints.rest.book.GetBookController;
+import com.application.core.book.BookUseCase;
+import com.application.entrypoints.rest.book.BookController;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 public class EndpointConfiguration {
 
     @Bean
-    public GetBookController getBookController(GetBookUseCase getBookUseCase) {
-        return new GetBookController(getBookUseCase);
+    public BookController getBookController(BookUseCase getBookUseCase) {
+        return new BookController(getBookUseCase);
     }
 }

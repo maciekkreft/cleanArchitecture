@@ -8,6 +8,7 @@ import com.application.core.sheet.SheetUseCase;
 import com.application.entrypoints.rest.exceptions.ConflictException;
 import com.application.entrypoints.rest.exceptions.NotFoundException;
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -20,14 +21,15 @@ import java.util.stream.Collectors;
 public class SheetController {
     private final SheetUseCase sheetUseCase;
 
-    @GetMapping
-    public List<GetSheetDto> listAllSheets(@RequestParam String pollCode,
-                                           @RequestParam String userEmail
+    @GetMapping("poll/{pollCode}/user/{userId}")
+    public List<GetSheetDto> listAllSheets(@PathVariable String pollCode,
+                                           @PathVariable Long userId
     ) {
-        return toDto(sheetUseCase.listSheetsByPollAndUser(pollCode, userEmail));
+        return toDto(sheetUseCase.listSheetsByPollAndUser(pollCode, userId));
     }
 
     @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
     public GetSheetDto addSheet(@RequestBody @Valid AddSheetDto dto) {
         try {
             return toDto(sheetUseCase.addSheet(toEntity(dto)));
@@ -41,7 +43,7 @@ public class SheetController {
     private GetSheetDto toDto(SheetEntity sheet) {
         return new GetSheetDto(
                 sheet.getId(),
-                sheet.getUserEmail(),
+                sheet.getUserId(),
                 sheet.getPollCode(),
                 sheet.getVersion(),
                 sheet.getAnswers()
@@ -58,7 +60,7 @@ public class SheetController {
         return new SheetEntity(
                 null,
                 dto.getPollCode(),
-                dto.getUserEmail(),
+                dto.getUserId(),
                 dto.getVersion(),
                 dto.getAnswers()
         );

@@ -5,6 +5,7 @@ import com.application.core.category.CategoryEntity;
 import com.application.core.category.CategoryUseCase;
 import com.application.entrypoints.rest.exceptions.ConflictException;
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -19,6 +20,7 @@ public class CategoryController {
     private final CategoryUseCase categoryUseCase;
 
     @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
     public GetCategoryDto addCategory(@RequestBody @Valid AddCategoryDto dto) {
         try {
             return toDto(categoryUseCase.addCategory(toEntity(dto)));

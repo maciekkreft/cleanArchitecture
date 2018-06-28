@@ -7,6 +7,7 @@ import com.application.core.poll.PollUseCase;
 import com.application.entrypoints.rest.exceptions.ConflictException;
 import com.application.entrypoints.rest.exceptions.NotFoundException;
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -25,6 +26,7 @@ public class PollController {
     }
 
     @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
     public GetPollDto addPoll(@RequestBody @Valid AddPollDto dto) {
         try {
             return toDto(pollUseCase.addPoll(toEntity(dto)));

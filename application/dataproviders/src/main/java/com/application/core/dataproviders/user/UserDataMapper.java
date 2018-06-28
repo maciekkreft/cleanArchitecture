@@ -4,10 +4,6 @@ import com.application.core.user.UserDataGateway;
 import com.application.core.user.UserEntity;
 import lombok.AllArgsConstructor;
 
-import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
-
 @AllArgsConstructor
 public class UserDataMapper implements UserDataGateway {
 
@@ -19,15 +15,25 @@ public class UserDataMapper implements UserDataGateway {
     }
 
     @Override
-    public boolean exists(String email) {
-        return userRepository.findByEmail(email) != null;
+    public UserEntity findById(Long userId) {
+        return toEntity(userRepository.findById(userId).get());
+    }
+
+    @Override
+    public boolean exists(Long id) {
+        return userRepository.existsById(id);
+    }
+
+    @Override
+    public boolean existsByUserAndSession(Long id, String sessionId) {
+        return userRepository.existsByIdAndSessionId(id, sessionId);
     }
 
     private UserEntity toEntity(User u) {
-        return new UserEntity(u.getId(), u.getEmail(), null, null);
+        return new UserEntity(u.getId(), u.getSessionId());
     }
 
     private User toRow(UserEntity user) {
-        return new User(user.getEmail(), String.valueOf(user.getPassword().hashCode()));
+        return new User(user.getSessionId());
     }
 }

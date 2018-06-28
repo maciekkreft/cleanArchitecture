@@ -4,7 +4,7 @@ public class SheetAlreadyExists extends RuntimeException {
     public SheetAlreadyExists(SheetEntity sheet) {
         super(String.format(
                 "Sheet for user %s and poll %s with %d version already exists",
-                sheet.getUserEmail(), sheet.getPollCode(), sheet.getVersion())
+                sheet.getUserId(), sheet.getPollCode(), sheet.getVersion())
         );
     }
 }

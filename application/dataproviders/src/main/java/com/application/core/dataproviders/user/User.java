@@ -13,8 +13,6 @@ import javax.persistence.*;
 public class User extends IdRow {
 
     @Column(nullable = false, unique = true)
-    private final String email;
+    private final String sessionId;
 
-    @Column(nullable = false)
-    private final String passwordHash;
 }

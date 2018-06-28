@@ -1,7 +1,12 @@
 package com.application.core.sheet;
 
 public class UserNotFoundException extends RuntimeException {
-    public UserNotFoundException(SheetEntity sheet) {
-        super(String.format("User with email %s does not exists", sheet.getUserEmail()));
+    public UserNotFoundException(Long userId) {
+        super(String.format("User #%d does not exists", userId));
     }
+
+    public UserNotFoundException(SheetEntity sheet) {
+        this(sheet.getUserId());
+    }
+
 }

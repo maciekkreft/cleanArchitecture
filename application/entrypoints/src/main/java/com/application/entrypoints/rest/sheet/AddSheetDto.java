@@ -15,7 +15,7 @@ import java.util.List;
 class AddSheetDto {
     @NotNull
     @NotBlank
-    private final String userEmail;
+    private final Long userId;
 
     @NotNull
     @NotBlank

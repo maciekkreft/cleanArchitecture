@@ -13,9 +13,5 @@ import javax.validation.constraints.NotNull;
 class GetUserDto {
     @NotNull
     @NotBlank
-    private final Long id;
-
-    @NotNull
-    @NotBlank
-    private final String email;
+    private final String id;
 }

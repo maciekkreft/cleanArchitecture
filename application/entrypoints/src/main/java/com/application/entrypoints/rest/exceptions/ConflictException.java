@@ -12,4 +12,12 @@ public class ConflictException extends RuntimeException {
         super(e.getMessage());
         log.error(Marker.ANY_MARKER, e);
     }
+
+    public ConflictException(String message) {
+        this(new RuntimeException(message));
+    }
+
+    public ConflictException(String messageFormat, Object... args) {
+        this(String.format(messageFormat, args));
+    }
 }

@@ -12,15 +12,15 @@ public class SheetUseCase {
     private final PollDataGateway pollDataGateway;
     private final UserDataGateway userDataGateway;
 
-    public List<SheetEntity> listSheetsByPollAndUser(String pollCode, String userEmail) {
-        return sheetDataGateway.findAllByPollCodeAndUserEmail(pollCode, userEmail);
+    public List<SheetEntity> listSheetsByPollAndUser(String pollCode, Long userId) {
+        return sheetDataGateway.findAllByPollCodeAndUserId(pollCode, userId);
     }
 
     public SheetEntity addSheet(SheetEntity sheet) {
         if (!pollDataGateway.exists(sheet.getPollCode())) {
             throw new PollNotFoundException(sheet);
         }
-        if (!userDataGateway.exists(sheet.getUserEmail())) {
+        if (!userDataGateway.exists(sheet.getUserId())) {
             throw new UserNotFoundException(sheet);
         }
         if (sheetDataGateway.exists(sheet)) {

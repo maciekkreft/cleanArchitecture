@@ -18,7 +18,7 @@ class GetSheetDto {
 
     @NotNull
     @NotBlank
-    private final String userEmail;
+    private final Long userId;
 
     @NotNull
     @NotBlank

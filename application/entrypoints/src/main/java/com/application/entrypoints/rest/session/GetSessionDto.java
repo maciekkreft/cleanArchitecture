@@ -1,4 +1,4 @@
-package com.application.entrypoints.rest.user;
+package com.application.entrypoints.rest.session;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,16 +10,8 @@ import javax.validation.constraints.NotNull;
 @Data
 @NoArgsConstructor(force = true)
 @AllArgsConstructor
-class AddUserDto {
+class GetSessionDto {
     @NotNull
     @NotBlank
-    private final String email;
-
-    @NotNull
-    @NotBlank
-    private final String password;
-
-    @NotNull
-    @NotBlank
-    private final String passwordRepeated;
+    private final String id;
 }

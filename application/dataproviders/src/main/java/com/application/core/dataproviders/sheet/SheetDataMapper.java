@@ -24,8 +24,8 @@ public class SheetDataMapper implements SheetDataGateway {
     }
 
     @Override
-    public List<SheetEntity> findAllByPollCodeAndUserEmail(String pollCode, String userEmail) {
-        return toEntity(sheetRepository.findAllByPollCodeAndUserEmail(pollCode, userEmail));
+    public List<SheetEntity> findAllByPollCodeAndUserId(String pollCode, Long userId) {
+        return toEntity(sheetRepository.findAllByPollCodeAndUserId(pollCode, userId));
     }
 
     public List<SheetEntity> toEntity(List<Sheet> sheets) {
@@ -41,7 +41,7 @@ public class SheetDataMapper implements SheetDataGateway {
         return new SheetEntity(
                 sheet.getId(),
                 sheet.getPoll().getCode(),
-                sheet.getUser().getEmail(),
+                sheet.getUser().getId(),
                 sheet.getVersion(),
                 answers
         );
@@ -49,7 +49,7 @@ public class SheetDataMapper implements SheetDataGateway {
 
     private Sheet toRow(SheetEntity sheet) {
         Poll poll = pollRepository.findByCode(sheet.getPollCode());
-        User user = userRepository.findByEmail(sheet.getUserEmail());
+        User user = userRepository.findById(sheet.getUserId()).get();
         List<Answer> answers = sheet.getAnswers().stream()
                 .map(s -> new Answer(s.equals("y")))
                 .collect(Collectors.toList());
@@ -58,9 +58,9 @@ public class SheetDataMapper implements SheetDataGateway {
 
     @Override
     public boolean exists(SheetEntity sheet) {
-        return sheetRepository.existsByPollCodeAndUserEmailAndVersion(
+        return sheetRepository.existsByPollCodeAndUserIdAndVersion(
                 sheet.getPollCode(),
-                sheet.getUserEmail(),
+                sheet.getUserId(),
                 sheet.getVersion()
         );
     }

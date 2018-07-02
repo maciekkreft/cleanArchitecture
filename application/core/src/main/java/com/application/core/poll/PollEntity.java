@@ -11,4 +11,6 @@ public class PollEntity {
     private final String name;
     private final String categoryCode;
     private final List<String> questions;
+    private final int mediumScore;
+    private final int highScore;
 }

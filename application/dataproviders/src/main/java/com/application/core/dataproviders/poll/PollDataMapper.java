@@ -40,7 +40,9 @@ public class PollDataMapper implements PollDataGateway {
                 r.getCode(),
                 r.getName(),
                 r.getCategory().getCode(),
-                questions);
+                questions,
+                Integer.valueOf(r.getScores().getMedium()),
+                Integer.valueOf(r.getScores().getHigh()));
     }
 
     private List<PollEntity> toEntity(Iterable<Poll> pollRows) {
@@ -54,7 +56,12 @@ public class PollDataMapper implements PollDataGateway {
         List<Question> questions = poll.getQuestions().stream()
                 .map(s -> new Question(s))
                 .collect(Collectors.toList());
-        return new Poll(poll.getCode(), poll.getName(), categoryRow, questions);
+        return new Poll(
+                poll.getCode(),
+                poll.getName(),
+                categoryRow,
+                questions,
+                new Score(poll.getMediumScore(), poll.getHighScore()));
     }
 
 }

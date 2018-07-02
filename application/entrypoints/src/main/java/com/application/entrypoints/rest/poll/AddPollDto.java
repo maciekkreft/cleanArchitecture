@@ -28,4 +28,12 @@ class AddPollDto {
     @NotNull
     @NotEmpty
     private final List<String> questions;
+
+    @NotNull
+    @NotBlank
+    private final int mediumScore;
+
+    @NotNull
+    @NotBlank
+    private final int highScore;
 }

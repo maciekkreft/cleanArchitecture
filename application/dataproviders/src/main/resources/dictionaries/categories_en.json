@@ -1,0 +1,11 @@
+{
+  "categories": [
+    { "code": "nutrition", "name": "Nutrition" },
+    { "code": "hormones", "name": "Hormones" },
+    { "code": "immune", "name": "Immune" },
+    { "code": "digestion", "name": "Digestion" },
+    { "code": "detoxification", "name": "Detoxification" },
+    { "code": "energy", "name": "Energy" },
+    { "code": "stress", "name": "Stress" } 
+  ]
+}

@@ -1,0 +1,588 @@
+{
+  "polls": [
+    {
+      "code": "fatty-acids",
+      "name": "Fatty Acids Quiz",
+      "objectives": "Does your oil need to be changed? Take the following quiz to find out.",
+      "category": "nutrition",
+      "questions": [
+        "I have soft, cracked, or brittle nails",
+        "I have dry, itchy, scaling, or flaking skin",
+        "I have hard earwax",
+        "I have chicken skin (tiny bumps on the backs of the cacks of arms or on the trunk)",
+        "I have dandruff",
+        "I feel aching or stiffness in my joints",
+        "I am thirsty most of the time",
+        "I am constipated (have fewer than two bowel movements a day)",
+        "I have light-colored, hard, or foul-smelling stools",
+        "I have poor mood, difficulty paying attention, and/or memory loss",
+        "I have high blood pressure",
+        "I have fibrocystic breast",
+        "I have premenstrual syndrome",
+        "I have a family history of high LDL cholesterol, low HDL levels, and high triglycerides",
+        "I am of North Atlantic genetic background: Irish, Scottish, Welsh, Scandinavian, or coastal Native American"
+      ],
+      "scores": {
+        "medium": 4,
+        "high": 7
+      }
+    },
+    {
+      "code": "dopamine",
+      "name": "Dopamine Quiz",
+      "objectives": "Do you have less than optimal dopamine levels? Take this quiz to find out.",
+      "category": "nutrition",
+      "questions": [
+        "I feel down a lot and do not have the energy to desire anything",
+        "I am low-energy kind of person, mentally or physically",
+        "I struggle to get motivated to exercise",
+        "I have trouble concentrating or focusing on things",
+        "I tend to sleep a lot or have trouble waking up",
+        "I use substances to wakeup, such as caffeine, chocolate, diet pills or even cocaine"
+      ],
+      "scores": {
+        "medium": 2,
+        "high": 4
+      }
+    },
+    {
+      "code": "serotonin",
+      "name": "Serotonin Quiz",
+      "objectives": "Do you have less than optimal serotonin levels? Take the following quiz to find out.",
+      "category": "nutrition",
+      "questions": [
+        "My head is full of ANTs (automatic negative thoughts)",
+        "I am a glass-half-empty person",
+        "I have low self-esteem and low self-confidence",
+        "I tend to have obsessive thoughts and behaviors (such as being a perfectionist or neat freak)",
+        "I get the winter blues or have a family history of SAD (seasonal affective disorder)",
+        "I tend to be irritable, easily angered, and/or impatient",
+        "I am shy and afraid of going out or have a fear of heights, crowds, flying, and/ or speaking in public",
+        "I feel anxious or have panic attacks",
+        "I have PMS (premenstrual syndrome) with moodiness, cravings, breast ten- derness, and bloating before my period",
+        "I have trouble falling asleep",
+        "I wake up in the middle of the night and have trouble getting back to sleep, or wake up too early in the morning",
+        "I crave sweets or starchy carbs like bread and pasta",
+        "I feel better when I exercise",
+        "I have muscle aches, and/or jaw pain, and/or a family history of fibromyalgia",
+        "I have a family history of treatment with SSRIs (serotonin boosting antide- pressants)"
+      ],
+      "scores": {
+        "medium": 4,
+        "high": 7
+      }
+    },
+    {
+      "code": "gaba",
+      "name": "GABA Quiz",
+      "objectives": "Do you have less than optimal GABA levels? Take the following quiz to find out.",
+      "category": "nutrition",
+      "questions": [
+        "It is hard for me to relax and kick back",
+        "I am easily stressed out or overwhelmed",
+        "It is common for me to feel overworked or pressured",
+        "My body is stiff or uptight",
+        "I sometimes feel weak and shaky",
+        "I am bothered by loud noises, lights, or too much activity",
+        "I feel more anxious or stressed if I skip meals",
+        "I use substances to help me relax, such as sugar, alcohol, and/or drugs"
+      ],
+      "scores": {
+        "medium": 2,
+        "high": 4
+      }
+    },
+    {
+      "code": "acetylcholine",
+      "name": "Acetylcholine Quiz",
+      "objectives": "Do you have less than optimal acetylholine levels? Take the following quiz to find out.",
+      "category": "nutrition",
+      "questions": [
+        "I find myself writing things down so I won’t forget them",
+        "I find it hard to do math in my head",
+        "I have a hard time finding words or remembering what I was saying if inter- rupted during a conversation",
+        "I get nervous or anxious when I have to learn something new, like new software at work",
+        "When reading a book or watching a movie, I find it harder to follow the plot than it used to be",
+        "I misplace my keys, wallet, or glasses frequently",
+        "I have trouble focusing during long conversations or meetings",
+        "I feel like my brain is just not functioning at its peak"
+      ],
+      "scores": {
+        "medium": 2,
+        "high": 4
+      }
+    },
+    {
+      "code": "methylation",
+      "name": "Methylation Quiz",
+      "objectives": "Is your body\"s methylation less than optimal? Take the following quiz to find out.",
+      "category": "nutrition",
+      "questions": [
+        "I eat animal protein (meat of any kind, dairy, cheese, eggs) morethan5times a week",
+        "I eat more than 1–2 foods a week with hydrogenated fats (margarine, short- ening, processed or packaged foods)",
+        "I have servings of animal protein greater than 4–6 ounces (the size of the palm of your hand) at a meal",
+        "I eat less than 1 cup of dark-green leafy vegetables a day",
+        "I eat fewer than 5–9 servings (1/2 cup = 1 serving) of fruits and vegetables a day",
+        "I have more than 3 alcoholic drinks a week",
+        "I have a poor mood",
+        "I have a history of a heart attack or other heart disease",
+        "I have a history of stroke",
+        "I have a history of cancer (especially colon, cervix, breast)",
+        "I have a history of abnormal PAP test (cervical dysplasia)",
+        "I have a history of birth defects in offspring (neural tube defects or Down syndrome)",
+        "I have a history of dementia",
+        "I have a loss of balance or sensation in feet",
+        "I have a history of multiple sclerosis or other diseases with nerve damage",
+        "I have a history of carpal tunnel syndrome",
+        "I do not take a multivitamin",
+        "I am over 65-years old"
+      ],
+      "scores": {
+        "medium": 8,
+        "high": 8
+      }
+    },
+    {
+      "code": "vitamin-d",
+      "name": "Vitamin D Quiz",
+      "objectives": "Do you have less than optimal levels of Vitamin D? Take the following quiz to find out.",
+      "category": "nutrition",
+      "questions": [
+        "I have a family history of seasonal affective disorder (SAD) or the winter blues",
+        "I have experienced a loss of mental sharpness or memory",
+        "I have sore or weak muscles",
+        "I have tender bones (press on your shin bone to see if it hurts,)",
+        "I work indoors",
+        "I avoid the sun",
+        "I wear sunblock most of the time",
+        "I live north of Florida",
+        "I don not eat small, fatty fish such as mackerel, herring, or sardines (the main source of dietary vitamin D)",
+        "I have a family history of osteoporosis",
+        "I have broken more than 2 bones or had a hip fracture",
+        "I have a family history of autoimmune disease (such as multiple sclerosis)",
+        "I have osteoarthritis (vitamin D deficiency weakens bones and leads to deterioration)",
+        "I have frequent infections",
+        "I have a family history of prostate cancer",
+        "I have dark skin (any race other than Caucasian)",
+        "I am 60 years old or older"
+      ],
+      "scores": {
+        "medium": 8,
+        "high": 8
+      }
+    },
+    {
+      "code": "magnesium",
+      "name": "Magnesium Quiz",
+      "objectives": "Do you have less than optimal levels of Magnesium? Take the following quiz to find out.",
+      "category": "nutrition",
+      "questions": [
+        "I have a poor mood",
+        "I feel irritable",
+        "I have difficulty focusing",
+        "I have a family history of autism",
+        "I am anxious",
+        "I have trouble falling and/or staying asleep",
+        "I have muscle twitching",
+        "I have premenstrual syndrome",
+        "I have leg or hand cramps",
+        "I have restless leg syndrome",
+        "I have heart flutters, skipped beats, or palpitations",
+        "I get frequent headaches or migraines",
+        "I have trouble swallowing",
+        "I have acid reflux",
+        "I am sensitive to loud noises",
+        "I feel fatigued",
+        "I have a family history of asthma",
+        "I have constipation (fewer than two bowel movements a day)",
+        "I have excess stress",
+        "I have kidney stones",
+        "I have a family history of heart disease or heart failure",
+        "I have a family history of mitral valve prolapse",
+        "I have a family history of diabetes",
+        "I have a low intake of kelp, wheat bran or germ, almonds, cashews, buck- wheat, or dark-green leafy vegetables.     "
+      ],
+      "scores": {
+        "medium": 12,
+        "high": 12
+      }
+    },
+    {
+      "code": "zinc",
+      "name": "Zinc Quiz",
+      "objectives": "Do you have less than optimal zinc levels? Take the following quiz to find out.",
+      "category": "nutrition",
+      "questions": [
+        "I have impaired taste",
+        "I have impaired smell",
+        "I have weak nails (thin, brittle, peeling)",
+        "I have white spots on my nails",
+        "I have frequent colds or respiratory infections",
+        "I have diarrhea",
+        "I have eczema or other skin rashes",
+        "I have acne",
+        "My wounds heal poorly",
+        "I have allergies",
+        "I am losing my hair",
+        "I have dandruff",
+        "I have a family history of erectile dysfunction",
+        "I have an enlarged or inflamed prostate",
+        "I have a family history of inflammatory bowel disease (ulcerative colitis, Crohn’s disease)",
+        "I have a family history of rheumatoid arthritis",
+        "I consume hard water (which depletes zinc)",
+        "I consume more than 3 alcoholic beverages per week",
+        "I sweat excessively",
+        "I have a family history of kidney or liver disease",
+        "I am over age 65",
+        "I use diuretics (water pills)",
+        "I have a low intake of dulse (seaweed), fresh ginger root, egg yolks, fish, kelp, lamb, legumes, and pumpkin seeds.     "
+      ],
+      "scores": {
+        "medium": 12,
+        "high": 12
+      }
+    },
+    {
+      "code": "insulin",
+      "name": "Insulin Quiz",
+      "objectives": "Do you have less than optimal insulin or blood sugar levels? Take the following quiz to find out.",
+      "category": "hormones",
+      "questions": [
+        "I crave sweets and eat them, and though I get a temporary boost of energy and mood, I later crash",
+        "I have a family history of diabetes, hypoglycemia, or alcoholism",
+        "I get irritable, anxious, tired, and jittery, or get headaches intermittently throughout the day, but feel better temporarily after meals",
+        "I feel shaky 2-3 hours after a meal",
+        "I eat a low-fat diet but can not seem to lose weight",
+        "If I miss a meal, I feel cranky and irritable, weak, or tired",
+        "If I eat a carbohydrate breakfast (muffin, bagel, cereal, pancakes, etc.), I can not seem to control my eating for the rest of the day",
+        "Once I start eating sweets or carbohydrates, I can not seem to stop",
+        "If I eat fish or meat and vegetables, I feel good, but seem to get sleep or feel drugged after eating a meal full of pasta, bread, potatoes, and dessert",
+        "I go for breadbasket at restaurants",
+        "I get heart palpitations after eating sweets",
+        "I seem salt sensitive (I tend to retain water)",
+        "I get panic attacks in the afternoon if I skip breakfast",
+        "I am often moody, impatient, or anxious",
+        "My memory and concentration are poor",
+        "Eating makes me calm",
+        "I get tired a few hours after eating",
+        "I get night sweats",
+        "I am tired most of the time",
+        "I have extra weight around the middle",
+        "My hair thins is the places I do not want it to (my head) and it grows in the places it should not (my face, if I am a woman)",
+        "I have a family history of polycystic ovarian syndrome or am infertile",
+        "I have a family history of high blood pressure",
+        "I have a family history of heart disease",
+        "I have a family history of type 2 diabetes",
+        "I have chronic fungal ifections (jock itch, vaginal yeast infections, dy scaly patches on my skin)"
+      ],
+      "scores": {
+        "medium": 9,
+        "high": 14
+      }
+    },
+    {
+      "code": "thyroid",
+      "name": "Thyroid Quiz",
+      "objectives": "",
+      "category": "hormones",
+      "questions": [
+        "I have thick skin and fingernails",
+        "I have dry skin",
+        "My hair is thinning, I lose hair, or have coarse hair",
+        "I am sensitive to cold",
+        "I have cold hands and feet",
+        "I have muscle fatigue, pain, or weakness",
+        "I have heavy menstrual bleeding, worsening of premenstrual syndrome, other menstrual problems, or infertility",
+        "My sex drive has decreased",
+        "I retain fluid (swelling of hands and feet)",
+        "I feel fatigued (especially in the morning)",
+        "I have low blood pressure and heart rate",
+        "I have trouble with memory and concentration",
+        "The outer third of my eyebrows is thinning",
+        "I have trouble losing weight or have recent weight gain",
+        "I have constipation",
+        "I have a poor mood and am apathetic",
+        "I have a family history of autoimmune disease (such as rheumatoid arthritis, multiple sclerosis, lupus, allergies, yeast overgrowth)",
+        "I have a family history of celiac disease or am gluten sensitive",
+        "I have been exposed to radiation treatments",
+        "I have been exposed to environmental toxins",
+        "I consume a lot of tuna and sushi and/or have multiple dental silver (mercury) fillings",
+        "I have a family history of thyroid problems",
+        "I drink chlorinated or fluoridated water"
+      ],
+      "scores": {
+        "medium": 7,
+        "high": 11
+      }
+    },
+    {
+      "code": "sexual-women",
+      "name": "Sexual Hormones Quiz For Women",
+      "objectives": "",
+      "category": "hormones",
+      "questions": [
+        "I have premenstrual syndrome",
+        "I have monthly weight fluctuation",
+        "I have edema, swelling, puffiness, or water retention",
+        "I feel bloated",
+        "I have headaches",
+        "I have mood swings",
+        "I have tender, enlarged breasts",
+        "I have a poor mood",
+        "I feel unable to cope with ordinary demands",
+        "I have backaches, joint, or muscle pain",
+        "I have premenstrual food cravings (especially sugar or salt)",
+        "I have irregular cycles, heavy bleeding, or light bleeding",
+        "I am infertile",
+        "I use birth control pills or other hormones",
+        "I have premenstrual migraines",
+        "I have breast cysts or lumps or fibrocystic breasts",
+        "I have a family history of breast, ovarian, or uterine cancer",
+        "I have a family history of uterine fibroids",
+        "I have peri or menopausal symptoms",
+        "I have hot flashes",
+        "I feel anxious",
+        "I have night sweats",
+        "I have insomnia",
+        "I have lost my sex drive",
+        "I have dry skin, hair, and/or vagina",
+        "I have heart palpitations",
+        "I have trouble with memory or concentration",
+        "I have bloating or weight gain around the middle",
+        "I have facial hair",
+        "I have been exposed to pesticides or heavy metals (in food, water, air)"
+      ],
+      "scores": {
+        "medium": 9,
+        "high": 14
+      }
+    },
+    {
+      "code": "sexual-men",
+      "name": "Sexual Hormones Quiz For Men",
+      "objectives": "",
+      "category": "hormones",
+      "questions": [
+        "I have a reduced sex drive and have lost my vitality",
+        "I have trouble achieving or maintaining an erection",
+        "I am infertile or have low sperm count",
+        "I have loss of muscle",
+        "I have increased abdominal fat",
+        "I am fatigued or have low energy",
+        "I feel a loss of direction and purpose or a sense of apathy",
+        "I have bone loss or bone fractures",
+        "I have a family history of high cholesterol",
+        "I have a family history of insulin or blood sugar problems",
+        "I feel weak",
+        "I have a poor moo",
+        "I have been exposed to pesticides or heavy metals (in food, water, air)"
+      ],
+      "scores": {
+        "medium": 4,
+        "high": 6
+      }
+    },
+    {
+      "code": "inflammation",
+      "name": "Inflammation Quiz",
+      "objectives": "",
+      "category": "immune",
+      "questions": [
+        "I have seasonal or environmental allergies",
+        "I have food allergies or sensitivities or I don’t feel well after eating (sluggishness, headaches, confusion, etc.",
+        "I work in an environment with poor lighting, chemicals, and/or poor ventilation",
+        "I am exposed to pesticides, toxic chemicals, loud noise, heavy metals, and/or toxic bosses and coworkers",
+        "I get frequent colds and infections",
+        "I have a history of chronic infections such as hepatitis, skin infections, canker sores, and/or cold sores",
+        "I have sinusitis and allergies",
+        "I have a family history of bronchitis or asthma",
+        "I have dermatitis (eczema, acne, rashes)",
+        "I suffer from arthritis (osteoarthritis/degenerative wear and tear)",
+        "I have a family history of autoimmune disease (rheumatoid arthritis, lupus, hypothyroidism, etc.)",
+        "I have a family history of colitis or inflammatory bowel disease",
+        "I have a family history of irritable bowel syndrome (spastic colon)",
+        "I have neuritis (problems like mood and behavior problems)",
+        "I have had a heart attack or have a family history of heart disease",
+        "I am overweight. (BMI greater than 25; a BMI chart has been printed in Section 5 of this guide.) or have a family history of diabete",
+        "I have a family history of Parkinson’s or Alzheimer’s",
+        "I have a stressful life",
+        "I drink more than 3 glasses of alcohol a week",
+        "I do not exercise more than 30 minutes 3 times a week"
+      ],
+      "scores": {
+        "medium": 6,
+        "high": 9
+      }
+    },
+    {
+      "code": "gut",
+      "name": "Gut Quiz",
+      "objectives": "",
+      "category": "digestion",
+      "questions": [
+        "I have a bloated or full feeling, and/or belching, burning, or flatulence right after meals",
+        "I have chronic yeast or fungal infections (jock itch, vaginal yeast infection, athlete’s foot, toenail fungus)",
+        "I feel nauseated after taking supplements",
+        "I feel fatigued after eating",
+        "I have heartburn",
+        "I regularly use antacids (Tums, Maalox, acid-blocking drugs, etc.)",
+        "I have chronic abdominal pains",
+        "I have diarrhea",
+        "I have constipation (going less than once or twice a day)",
+        "I have greasy, large, poorly formed, or foul-smelling stools",
+        "I find food that is not fully digested in my stool",
+        "I have food allergies, intolerance, or reactions",
+        "I have an intolerance to carbohydrates (eating bread or other sugars causes bloating)",
+        "I have thrush (whitish tongue)",
+        "I have anal itching",
+        "I have bleeding gums or gingivitis",
+        "I have geographic tongue (map-like rash on tongue indicating food allergy or yeast overgrowth)",
+        "I have sores on the tongue",
+        "I have canker sores",
+        "I crave sweets and bread",
+        "I drink more than 3 alcoholic beverages a week",
+        "I have excessive stress",
+        "I frequently use or have frequently used antibiotics in the past (more than 1–2 times in 3 years)",
+        "I have a history of NSAID(ibuprofen, naproxen, etc.) or other anti-inflammatory use",
+        "I have taken birth control pills or hormone replacements",
+        "I have taken prednisone or cortisone",
+        "I have a family history of any of the following diseases or conditions: Autism, ADHD, Rosacea, Acne after adolescence, Eczema, Psoriaris, Celiac disease (gluten alergy), Chronic autoimmune diseases, Chronic hives or urticaria, Inflammatory bowel disease, Irritable bowel syndrome, Chronic fatigue syndrome, Fibromylagia"
+      ],
+      "scores": {
+        "medium": 8,
+        "high": 12
+      }
+    },
+    {
+      "code": "toxins",
+      "name": "Toxins Quiz",
+      "objectives": "",
+      "category": "detoxification",
+      "questions": [
+        "I have hard, difficult-to-pass bowel movements every day or every other day",
+        "I am constipated and only go every other day or less often",
+        "I urinate small amounts of dark, strong-smelling urine only a few times a day",
+        "I almost never break a real sweat",
+        "I experience one or more of the following: Fatigue, Muscle aches, Headaches, Concentration and memory problems",
+        "I have a family history of fibromyalgia or chronic fatigue syndrome",
+        "I drink unfiltered tap or well water or water from plastic bottles",
+        "I dry-clean my clothes",
+        "I work or live in a building with poor ventilation or windows that don’t open",
+        "I live in a large urban or industrial area",
+        "I use household or lawn garden chemicals or get my house or apartment treated for bugs by an exterminator",
+        "I have more than 1–2 mercury amalgams (fillings) in my teeth",
+        "I eat large fish(swordfish, tuna, shark, tilefish) more than once a week",
+        "I am bothered by one or more of the following: Gasoline or diesel fumes, Perfumes, New car smell, Dry-cleaned clothes, Hair spray, Other strong odors, Soaps, Detergents, Tobaco smoke, Chlorinated water",
+        "I have a negative reaction when I consume foods containing MSG, sulfites (found in wine, salad bars, dried fruit), sodium benzoate (preservative), red wine, cheese, bananas, chocolate, garlic, onions, or even a small amount of alcohol",
+        "When I drink caffeine, I feel wired, experience an increase in joint and muscle aches, and/or have hypoglycemic symptoms (anxiety, palpitations, sweating, dizziness)",
+        "I regularly consume any of the following substances or medications: Acetaminophen (Tylenol), Acid-blocking drugs (Tagamet, Zantac, Pepcid, Prilosec, Prevacid), Hormones-modulating medications in pills, patches or creams (the birth control pill, estrogen, progesterone, prostate medications), Ibuprofen or naproxen, Medications for recurrent headaches, allergy symptoms, nausea, diarrhea, or indigestio",
+        "I have had jaundice (skin and whites of eyes turning yellow) for any reason or I have been told I have Gilbert’s syndrome (an elevation of bilirubin)",
+        "I have a family history of any of the following conditions: Breast cancer, Smoking-induced lung cancer, Other type of cancer, Prostate problems, Food allergies, sensitivities, or intolerance",
+        "I have a family history of Parkinson’s,Alzheimer’s,ALS (amyotrophic lateral sclerosis) or other motor neuron diseases, or multiple sclerosis"
+      ],
+      "scores": {
+        "medium": 6,
+        "high": 9
+      }
+    },
+    {
+      "code": "loss-energy",
+      "name": "Loss Of Energy Quiz",
+      "objectives": "",
+      "category": "energy",
+      "questions": [
+        "I have chronic or prolonged fatigue",
+        "I have muscle pain or discomfort",
+        "I have sleep problems (trouble staying or falling asleep or waking up early)",
+        "My sleep is not refreshing",
+        "I have a poor tolerance to exercise, with severe fatigue after",
+        "I have muscle weakness",
+        "I have trouble concentrating or with memory",
+        "I am irritable and mood",
+        "Fatigue prevents me from doing things I would like to do",
+        "Fatigue interferes with work, family, or social life",
+        "I have been under prolonged stress",
+        "My symptoms started after an acute stress incident, infection, or trauma",
+        "I have chronic fatigue syndrome or fibromyalgia",
+        "I have a history of chronic infections",
+        "I overeat",
+        "I have been exposed to environmental chemicals (pesticides, unfiltered water, nonorganic food)",
+        "I served in the Gulf War or another military engagement and have suffered negative consequences",
+        "I have a family history of neurologic diseases, including Alzheimer’s, Parkinson’s, ALS, etc",
+        "I have a family history of autism or ADHD",
+        "I have a family history of depression, bipolar disease, or schizophrenia"
+      ],
+      "scores": {
+        "medium": 6,
+        "high": 9
+      }
+    },
+    {
+      "code": "oxidative-stress",
+      "name": "Oxidative Stress Quiz",
+      "objectives": "",
+      "category": "energy",
+      "questions": [
+        "I am fatigued on regular basis",
+        "I get less than 8 hours sleep a night",
+        "I don’t exercise regularly or I exercise more than 15 hours a week",
+        "I am sensitive to perfume, smoke, or other chemicals or fumes",
+        "I regularly experience deep muscle or joint pai",
+        "I am exposed to a significant level of environmental toxins (pollutants, chemicals, etc.) at home or at work",
+        "I smoke cigarettes or cigars (or anything else)",
+        "I am regularly exposed to secondhand smoke",
+        "I drink more than 3 alcoholic beverages a week",
+        "I don’t use sunblock, or I like to bake in the sun or go to tanning booths",
+        "I take prescription, over-the-counter, and/or recreational drugs",
+        "I would rate my life as very stressful",
+        "I eat fried foods, margarine, or a lot of animal fat (meat, cheese, etc.)",
+        "I eat white flour and sugar more than twice a week",
+        "I eat fewer than 5 servings of deeply colored vegetables and fruits a day",
+        "I have chronic colds and infections (cold sores, canker sores, etc.)",
+        "I don’t take an antioxidant-containing multivitamin",
+        "I am overweight. (BMI more than 25; a BMI chart has been printed in Section 5 of this guide.",
+        "I have a family history of diabetes or heart disease",
+        "I have arthritis or allergies"
+      ],
+      "scores": {
+        "medium": 9,
+        "high": 9
+      }
+    },
+    {
+      "code": "adrenal",
+      "name": "Adrenal Dysfunction Quiz",
+      "objectives": "",
+      "category": "stress",
+      "questions": [
+        "I have low blood pressure",
+        "I feel dizzy when I stand up",
+        "I have hypoglycemia (low blood sugar)",
+        "I crave salt",
+        "I crave sweets",
+        "I have dark circles under my eyes",
+        "I have sleep problems (either falling asleep or staying asleep)",
+        "I have nonrestorative sleep (don’t feel reenergized)",
+        "I have mental fogginess or trouble concentrating",
+        "I have headaches",
+        "I have frequent infections (catch cold easily)",
+        "I do not tolerate exercise well and feel completely exhausted after",
+        "I feel stressed most of the time",
+        "I feel tired but wired",
+        "I retain water",
+        "I have panic attacks or am easily startled",
+        "I have heart palpitations",
+        "I need to start the day with caffeine",
+        "I have poor tolerance to alcohol, caffeine, and other drugs",
+        "I feel weak and shaky",
+        "I have sweaty palms and feet when nervous",
+        "I feel fatigued",
+        "My muscles are weak"
+      ],
+      "scores": {
+        "medium": 7,
+        "high": 10
+      }
+    }
+  ]
+}

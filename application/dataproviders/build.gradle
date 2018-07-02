@@ -1,5 +1,20 @@
 description = "Retrieve data from any source (db, file system, 3rd party, etc.)"
 
+// configure spring boot with gradle: start
+buildscript {
+    repositories {
+        mavenCentral()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:${springboot_version}"
+    }
+}
+apply plugin: "org.springframework.boot"
+// configure spring boot with gradle: end
+
 dependencies {
     compile project(":application:core")
 

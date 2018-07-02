@@ -43,7 +43,9 @@ public class PollController {
                 poll.getCode(),
                 poll.getName(),
                 poll.getCategoryCode(),
-                poll.getQuestions()
+                poll.getQuestions(),
+                poll.getMediumScore(),
+                poll.getHighScore()
         );
     }
 
@@ -59,7 +61,9 @@ public class PollController {
                 dto.getCode(),
                 dto.getName(),
                 dto.getCategoryCode(),
-                dto.getQuestions()
+                dto.getQuestions(),
+                dto.getMediumScore(),
+                dto.getHighScore()
         );
     }
 

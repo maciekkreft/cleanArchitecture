@@ -14,6 +14,7 @@ subprojects {
         h2_version = '1.4.197'
         lombok_version = '1.18.0'
         java_uuid_generator_version = '3.1.5'
+        fastjson_version = '1.2.47'
     }
 
     ext.libs = [
@@ -21,7 +22,7 @@ subprojects {
                     "org.springframework.boot:spring-boot-starter-web:${springboot_version}",
                     "org.springframework.boot:spring-boot-starter-data-jpa:${springboot_version}",
                     "org.springframework.boot:spring-boot-devtools:${springboot_version}",
-                    "com.h2database:h2:${h2_version}"
+                    "com.h2database:h2:${h2_version}",
             ],
 
             core         : [
@@ -32,6 +33,7 @@ subprojects {
                     "org.springframework.boot:spring-boot-starter-data-jpa:${springboot_version}",
                     "com.h2database:h2:${h2_version}",
                     "com.fasterxml.uuid:java-uuid-generator:${java_uuid_generator_version}",
+                    "com.alibaba:fastjson:${fastjson_version}"
             ],
 
             entrypoints  : [

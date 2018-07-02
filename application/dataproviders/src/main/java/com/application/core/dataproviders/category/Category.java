@@ -1,10 +1,7 @@
 package com.application.core.dataproviders.category;
 
 import com.application.core.dataproviders.IdRow;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,6 +10,7 @@ import javax.persistence.Entity;
 @EqualsAndHashCode(callSuper = false)
 @NoArgsConstructor(force = true)
 @RequiredArgsConstructor
+@ToString(callSuper = true)
 @Entity
 public class Category extends IdRow {
 

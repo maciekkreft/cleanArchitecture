@@ -30,15 +30,8 @@ public class Poll extends IdRow {
     @ElementCollection
     private final List<Question> questions;
 
-}
-
-@Data
-@NoArgsConstructor(force = true)
-@RequiredArgsConstructor
-@Embeddable
-class Question {
-
+    @Embedded
     @Column(nullable = false)
-    private final String content;
+    private final Score scores;
 
 }

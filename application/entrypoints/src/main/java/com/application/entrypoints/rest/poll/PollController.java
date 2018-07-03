@@ -1,9 +1,11 @@
 package com.application.entrypoints.rest.poll;
 
+import com.application.core.category.CategoryEntity;
 import com.application.core.poll.CategoryNotFoundException;
 import com.application.core.poll.PollAlreadyExists;
 import com.application.core.poll.PollEntity;
 import com.application.core.poll.PollUseCase;
+import com.application.entrypoints.rest.category.GetCategoryDto;
 import com.application.entrypoints.rest.exceptions.ConflictException;
 import com.application.entrypoints.rest.exceptions.NotFoundException;
 import lombok.AllArgsConstructor;
@@ -39,14 +41,17 @@ public class PollController {
 
     private GetPollDto toDto(PollEntity poll) {
         return new GetPollDto(
-                poll.getId(),
                 poll.getCode(),
                 poll.getName(),
-                poll.getCategoryCode(),
+                toDto(poll.getCategory()),
                 poll.getQuestions(),
                 poll.getMediumScore(),
                 poll.getHighScore()
         );
+    }
+
+    private GetCategoryDto toDto(CategoryEntity c) {
+        return new GetCategoryDto(c.getCode(), c.getName());
     }
 
     private List<GetPollDto> toDto(List<PollEntity> polls) {
@@ -57,10 +62,9 @@ public class PollController {
 
     private PollEntity toEntity(AddPollDto dto) {
         return new PollEntity(
-                null,
                 dto.getCode(),
                 dto.getName(),
-                dto.getCategoryCode(),
+                new CategoryEntity(dto.getCategoryCode(), null),
                 dto.getQuestions(),
                 dto.getMediumScore(),
                 dto.getHighScore()

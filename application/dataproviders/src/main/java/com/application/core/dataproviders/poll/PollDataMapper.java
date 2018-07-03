@@ -1,5 +1,6 @@
 package com.application.core.dataproviders.poll;
 
+import com.application.core.category.CategoryEntity;
 import com.application.core.dataproviders.category.Category;
 import com.application.core.dataproviders.category.CategoryRepository;
 import com.application.core.poll.PollDataGateway;
@@ -31,18 +32,21 @@ public class PollDataMapper implements PollDataGateway {
         return pollRepository.existsByCode(pollCode);
     }
 
-    private PollEntity toEntity(Poll r) {
-        List<String> questions = r.getQuestions().stream()
+    private PollEntity toEntity(Poll p) {
+        List<String> questions = p.getQuestions().stream()
                 .map(q -> q.getContent())
                 .collect(Collectors.toList());
         return new PollEntity(
-                r.getId(),
-                r.getCode(),
-                r.getName(),
-                r.getCategory().getCode(),
+                p.getCode(),
+                p.getName(),
+                toEntity(p.getCategory()),
                 questions,
-                Integer.valueOf(r.getScores().getMedium()),
-                Integer.valueOf(r.getScores().getHigh()));
+                Integer.valueOf(p.getScores().getMedium()),
+                Integer.valueOf(p.getScores().getHigh()));
+    }
+
+    private CategoryEntity toEntity(Category c) {
+       return new CategoryEntity(c.getCode(), c.getName());
     }
 
     private List<PollEntity> toEntity(Iterable<Poll> pollRows) {

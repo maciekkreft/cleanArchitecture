@@ -37,7 +37,7 @@ public class CategoryDataMapper implements CategoryDataGateway {
     }
 
     private CategoryEntity toEntity(Category c) {
-        return new CategoryEntity(c.getId(), c.getCode(), c.getName());
+        return new CategoryEntity(c.getCode(), c.getName());
     }
 
     private Category toRow(CategoryEntity category) {

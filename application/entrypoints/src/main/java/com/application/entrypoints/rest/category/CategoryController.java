@@ -41,11 +41,11 @@ public class CategoryController {
     }
 
     private GetCategoryDto toDto(CategoryEntity category) {
-        return new GetCategoryDto(category.getId(), category.getCode(), category.getName());
+        return new GetCategoryDto(category.getCode(), category.getName());
     }
 
     private CategoryEntity toEntity(AddCategoryDto dto) {
-        return new CategoryEntity(null, dto.getCode(), dto.getName());
+        return new CategoryEntity(dto.getCode(), dto.getName());
     }
 
 }

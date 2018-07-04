@@ -1,6 +1,6 @@
 import { Dispatch } from 'redux'
 
-import { Action, Api, Payload } from '../../interfaces'
+import { Api, Payload } from '../../interfaces'
 
 export const GET_POLLS_REQUEST = 'GET_POLLS_REQUEST'
 export type GET_POLLS_REQUEST = typeof GET_POLLS_REQUEST
@@ -23,15 +23,15 @@ export interface GetPollsFailure { type: GET_POLLS_FAILURE }
 export type GetPollsActions = GetPollsRequest
   | GetPollsResponse | GetPollsFailure
 
-export const getPolls = (api: Api) => (dispatch: Dispatch<Action.GetPollsActions>) => {
-  dispatch({ type: Action.GET_POLLS_REQUEST })
+export const getPolls = (dispatch: Dispatch<GetPollsActions>) => (api: Api) => {
+  dispatch({ type: GET_POLLS_REQUEST })
   return api.getPolls().then(
     (payload: Payload.Polls) => dispatch({
-      type: Action.GET_POLLS_RESPONSE,
+      type: GET_POLLS_RESPONSE,
       payload
     }),
     error => dispatch({
-      type: Action.GET_POLLS_FAILURE
+      type: GET_POLLS_FAILURE
     })
   )
 }

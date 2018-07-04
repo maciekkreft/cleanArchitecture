@@ -1,4 +1,11 @@
-interface Poll {
+export interface Polls {
+  byCode: {
+    [p: string]: Poll
+  },
+  codes: string[]
+}
+
+export interface Poll {
   code: string
   name: string
   category: string
@@ -8,10 +15,5 @@ interface Poll {
 }
 
 export default interface State {
-  polls: {
-    byCode: {
-      [p: string]: Poll
-    },
-    codes: string[]
-  }
+  polls: Polls
 }

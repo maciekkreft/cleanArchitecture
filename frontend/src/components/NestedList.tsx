@@ -19,7 +19,7 @@ const styles = (theme: any) => ({
 })
 
 interface Props {
-  classes: any;
+  classes: any
 }
 
 class NestedList extends React.Component<Props> {

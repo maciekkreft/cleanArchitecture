@@ -28,7 +28,6 @@ class PollList extends React.Component<Props> {
   }
 
   public render() {
-    // return <Components.NestedList nestedList={this.props.pollsByCategories} />
     return <Components.NestedList />
   }
 }

@@ -13,6 +13,7 @@ const poll = new schema.Entity('polls', { category }, {
 interface Normalized {
   entities: {
     polls: State.Polls['byCode']
+    categories: State.Categories['byCode']
   },
   result: string[]
 }

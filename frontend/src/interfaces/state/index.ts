@@ -1,3 +1,15 @@
+export interface Categories {
+  byCode: {
+    [p: string]: Category
+  },
+  codes: string[]
+}
+
+export interface Category {
+  code: string
+  name: string
+}
+
 export interface Polls {
   byCode: {
     [p: string]: Poll
@@ -15,5 +27,6 @@ export interface Poll {
 }
 
 export default interface State {
-  polls: Polls
+  polls: Polls,
+  categories: Categories
 }

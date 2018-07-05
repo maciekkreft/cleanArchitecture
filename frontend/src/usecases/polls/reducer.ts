@@ -38,3 +38,5 @@ export const selectPollsByCategories = (state: State.default) => {
   const polls = state.polls.codes.map(c => state.polls.byCode[c])
   return groupBy(polls, (p: State.Poll) => p.category)
 }
+
+export const selectPollByCode = (state: State.default) => state.polls.byCode

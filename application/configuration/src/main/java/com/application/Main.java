@@ -1,7 +1,8 @@
 package com.application;
 
-import com.application.core.initialization.configuration.InitializerConfiguration;
-import com.application.core.initialization.core.DbInitializer;
+import com.application.entrypoints.rest.configuration.InterceptorConfiguration;
+import com.application.initialization.configuration.DbInitializerConfiguration;
+import com.application.initialization.core.DbInitializer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -12,7 +13,10 @@ import org.springframework.context.annotation.Import;
 @Configuration
 @EnableAutoConfiguration
 @ComponentScan(basePackages = "com.application.configuration")
-@Import(InitializerConfiguration.class)
+@Import(value = {
+        DbInitializerConfiguration.class,
+        InterceptorConfiguration.class
+})
 public class Main {
 
     public static void main(String[] args) {

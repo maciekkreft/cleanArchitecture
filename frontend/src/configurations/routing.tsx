@@ -7,6 +7,7 @@ export default () => (
   <Router>
     <React.Fragment>
       <Route exact path="/" component={Screens.PollListScreen} />
+      <Route exact path="/polls/:code" component={Screens.PollScreen} />
     </React.Fragment>
   </Router>
 )

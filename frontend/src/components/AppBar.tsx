@@ -1,8 +1,12 @@
+import {
+  AppBar, IconButton, Toolbar, Typography, withStyles
+} from '@material-ui/core'
+import { ChevronLeft as Menu } from '@material-ui/icons'
 import * as React from 'react'
+import { Link, match as Match, withRouter } from 'react-router-dom'
+import { compose } from 'redux'
 
-import { AppBar, IconButton, Toolbar, Typography, withStyles } from '@material-ui/core'
-
-// import { Menu } from '@material-ui/icons'
+import { State } from '../interfaces';
 
 const styles = {
   flex: {
@@ -15,22 +19,45 @@ const styles = {
   root: {
     flexGrow: 1,
   },
+  link: {
+    textDecoration: 'none',
+    color: 'inherit'
+  }
 }
 
 interface Props {
-  classes: any;
+  pollByCode: { [c: string]: State.Poll }
 }
 
-function ButtonAppBar({ classes }: Props) {
+interface StyleProps {
+  classes: any
+}
+
+interface RouterProps {
+  match: Match<{ code?: string }>
+  history: any
+  location: any
+}
+
+function ButtonAppBar({ classes, match, pollByCode }: Props & StyleProps & RouterProps) {
   return (
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
           <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
-            {/* <Menu /> */}
+            {
+              match.params.code && pollByCode &&
+              <Link to="/" className={classes.link}>
+                <Menu />
+              </Link>
+            }
           </IconButton>
           <Typography variant="title" color="inherit" className={classes.flex}>
-            JakieSuple.pl
+            {
+              match.params.code && pollByCode[match.params.code]
+                ? pollByCode[match.params.code].name
+                : "JakieSuple.pl"
+            }
           </Typography>
         </Toolbar>
       </AppBar>
@@ -38,4 +65,9 @@ function ButtonAppBar({ classes }: Props) {
   )
 }
 
-export const AppBarComponent = withStyles(styles)(ButtonAppBar)
+export const AppBarComponent =
+  compose(
+    withRouter
+  )<Props & Partial<StyleProps> & RouterProps>(
+    withStyles(styles)(ButtonAppBar)
+  )

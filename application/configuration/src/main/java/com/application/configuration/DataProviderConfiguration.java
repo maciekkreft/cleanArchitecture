@@ -1,15 +1,15 @@
 package com.application.configuration;
 
-import com.application.core.dataproviders.category.CategoryDataMapper;
-import com.application.core.dataproviders.category.CategoryRepository;
-import com.application.core.dataproviders.poll.PollDataMapper;
-import com.application.core.dataproviders.poll.PollRepository;
-import com.application.core.dataproviders.session.SessionDataMapper;
-import com.application.core.dataproviders.session.SessionRepository;
-import com.application.core.dataproviders.sheet.SheetDataMapper;
-import com.application.core.dataproviders.sheet.SheetRepository;
-import com.application.core.dataproviders.user.UserDataMapper;
-import com.application.core.dataproviders.user.UserRepository;
+import com.application.dataproviders.category.CategoryDataMapper;
+import com.application.dataproviders.category.CategoryRepository;
+import com.application.dataproviders.poll.PollDataMapper;
+import com.application.dataproviders.poll.PollRepository;
+import com.application.dataproviders.session.SessionDataMapper;
+import com.application.dataproviders.session.SessionRepository;
+import com.application.dataproviders.sheet.SheetDataMapper;
+import com.application.dataproviders.sheet.SheetRepository;
+import com.application.dataproviders.user.UserDataMapper;
+import com.application.dataproviders.user.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

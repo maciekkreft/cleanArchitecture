@@ -9,6 +9,7 @@ import {
   ListSubheader,
   withStyles,
 } from '@material-ui/core'
+import { Link } from 'react-router-dom';
 
 const styles = (theme: any) => ({
   nested: {
@@ -18,6 +19,10 @@ const styles = (theme: any) => ({
     backgroundColor: theme.palette.background.paper,
     width: '100%',
   },
+  link: {
+    textDecoration: 'none',
+    color: 'inherit'
+  }
 })
 
 interface Props {
@@ -34,7 +39,7 @@ class NestedList extends React.Component<Props> {
       <div className={classes.root}>
         {
           categories.codes.map(c => (
-            < List
+            <List
               key={c}
               component="nav"
               subheader={
@@ -46,7 +51,9 @@ class NestedList extends React.Component<Props> {
               {
                 pollsByCategories[c].map(p =>
                   <ListItem key={p.code} button={true}>
-                    <ListItemText primary={p.name} />
+                    <Link to={`/polls/${p.code}`} className={classes.link}>
+                      <ListItemText primary={p.name} />
+                    </Link>
                   </ListItem>
                 )
               }

@@ -9,9 +9,9 @@ public class UserUseCase {
     private final UserDataGateway userDataGateway;
     private final SessionUseCase sessionUseCase;
 
-    public UserEntity addUser(UserEntity user) {
-        sessionUseCase.verifySession(user.getSessionId());
-        return userDataGateway.addUser(user);
+    public UserEntity createUser(String sessionId) {
+        sessionUseCase.verifySession(sessionId);
+        return userDataGateway.createUser(sessionId);
     }
 
     private void authenticate(Long userId, String sessionId) {
@@ -24,7 +24,7 @@ public class UserUseCase {
         }
     }
 
-    public UserEntity getUser(Long userId, String sessionId) {
+    public UserEntity authenticateAndGetUser(Long userId, String sessionId) {
         authenticate(userId, sessionId);
         return userDataGateway.findById(userId);
     }

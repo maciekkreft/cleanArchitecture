@@ -23,7 +23,7 @@ interface Props {
   classes: any;
 }
 
-class SimpleBottomNavigation extends React.Component<Props, object> {
+class SimpleNavigation extends React.Component<Props, object> {
   public state = {
     value: 0,
   }
@@ -50,4 +50,4 @@ class SimpleBottomNavigation extends React.Component<Props, object> {
   }
 }
 
-export const NavigationComponent = withStyles(styles)(SimpleBottomNavigation)
+export const NavigationComponent = withStyles(styles)(SimpleNavigation)

@@ -1,3 +1,3 @@
 export { AppBarComponent as AppBar } from './AppBar'
-export { BottomNavigationComponent as BottomNavigation } from './BottomNavigation'
-export { NestedListComponent as NestedList } from './NestedList'
+export { NavigationComponent as Navigation } from './Navigation'
+export { PollsComponent as PollsList } from './Polls'

@@ -8,7 +8,9 @@ import { Api, State } from '../interfaces'
 import { PollsActions as Action, PollsReducer as Selector } from '../usecases'
 
 const mapStateToProps = (state: State.default): Partial<Props> => ({
-  pollsByCategories: Selector.selectPollsByCategories(state)
+  categories: state.categories,
+  polls: state.polls,
+  pollsByCategories: Selector.selectPollsByCategories(state),
 })
 
 const mapDispatchToProps = (dispatch: Dispatch): Partial<Props> => ({
@@ -16,28 +18,30 @@ const mapDispatchToProps = (dispatch: Dispatch): Partial<Props> => ({
 })
 
 interface Props {
-  pollsByCategories: { [c: string]: State.Poll[] }
   api: Api
   getPolls: (api: Api) => Promise<Action.GetPollsActions>
+  categories: State.Categories
+  polls: State.Polls
+  pollsByCategories: { [c: string]: State.Poll[] }
 }
 
-class PollList extends React.Component<Props> {
+class PollsList extends React.Component<Props> {
 
   public componentDidMount() {
     this.props.getPolls(this.props.api)
   }
 
   public render() {
-    return <Components.NestedList />
+    return <Components.PollsList {...this.props} />
   }
 }
 
-const PollListWithApi = (props: Props) =>
+const PollsListWithApi = (props: Props) =>
   <ApiContext.Consumer>
-    {(api: Api) => <PollList api={api} {...props} />}
+    {(api: Api) => <PollsList api={api} {...props} />}
   </ApiContext.Consumer>
 
-export const PollListContainer = connect(
+export const PollsListContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(PollListWithApi)
+)(PollsListWithApi)

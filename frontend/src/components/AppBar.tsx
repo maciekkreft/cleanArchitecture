@@ -2,7 +2,7 @@ import * as React from 'react'
 
 import { AppBar, IconButton, Toolbar, Typography, withStyles } from '@material-ui/core'
 
-import { Menu } from '@material-ui/icons'
+// import { Menu } from '@material-ui/icons'
 
 const styles = {
   flex: {
@@ -27,7 +27,7 @@ function ButtonAppBar({ classes }: Props) {
       <AppBar position="static">
         <Toolbar>
           <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
-            <Menu />
+            {/* <Menu /> */}
           </IconButton>
           <Typography variant="title" color="inherit" className={classes.flex}>
             JakieSuple.pl

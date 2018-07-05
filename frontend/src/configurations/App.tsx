@@ -1,11 +1,12 @@
 import * as React from 'react'
+import { hot } from 'react-hot-loader'
 import { Provider } from 'react-redux'
 
 import { RestApiContext } from '../dataproviders'
 import Router from './routing'
 import { store } from './store'
 
-export default class App extends React.Component {
+class App extends React.Component {
   public render() {
     return (
       <Provider store={store}>
@@ -16,3 +17,5 @@ export default class App extends React.Component {
     )
   }
 }
+
+export default hot(module)(App)

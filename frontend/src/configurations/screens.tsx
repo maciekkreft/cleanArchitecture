@@ -1,9 +1,9 @@
 import * as React from 'react'
-import { Footer, Header, PollList } from '../containers'
+import { Header, Navigation, PollsList } from '../containers'
 
 export const PollListScreen = () =>
   <React.Fragment>
     <Header />
-    <PollList />
-    <Footer />
+    <PollsList />
+    <Navigation />
   </React.Fragment>

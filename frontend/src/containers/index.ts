@@ -1,3 +1,3 @@
 export { HeaderContainer as Header } from './Header'
-export { FooterContainer as Footer } from './Footer'
-export { PollListContainer as PollList } from './PollList'
+export { NavigationContainer as Navigation } from './Navigation'
+export { PollsListContainer as PollsList } from './PollsList'

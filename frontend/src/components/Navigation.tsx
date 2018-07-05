@@ -19,7 +19,6 @@ const styles: any = {
   },
 }
 
-// tslint:disable-next-line:interface-name
 interface Props {
   classes: any;
 }
@@ -51,4 +50,4 @@ class SimpleBottomNavigation extends React.Component<Props, object> {
   }
 }
 
-export const BottomNavigationComponent = withStyles(styles)(SimpleBottomNavigation)
+export const NavigationComponent = withStyles(styles)(SimpleBottomNavigation)

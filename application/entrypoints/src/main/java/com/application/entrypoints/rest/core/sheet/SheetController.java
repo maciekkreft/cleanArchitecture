@@ -23,17 +23,18 @@ public class SheetController {
 
     @GetMapping("/{pollCode}")
     public List<GetSheetDto> listAllSheets(@PathVariable String pollCode,
-                                           @RequestHeader Long userId
+                                           @RequestAttribute Long userId
     ) {
-        System.out.println(userId);
         return toDto(sheetUseCase.listSheetsByPollAndUser(pollCode, userId));
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public GetSheetDto addSheet(@RequestBody @Valid AddSheetDto dto) {
+    public GetSheetDto addSheet(@RequestBody @Valid AddSheetDto dto,
+                                @RequestAttribute Long userId
+    ) {
         try {
-            return toDto(sheetUseCase.addSheet(toEntity(dto)));
+            return toDto(sheetUseCase.addSheet(toEntity(dto, userId)));
         } catch (SheetAlreadyExists e) {
             throw new ConflictException(e);
         } catch (CategoryNotFoundException | PollNotFoundException e) {
@@ -43,8 +44,6 @@ public class SheetController {
 
     private GetSheetDto toDto(SheetEntity sheet) {
         return new GetSheetDto(
-                sheet.getId(),
-                sheet.getUserId(),
                 sheet.getPollCode(),
                 sheet.getVersion(),
                 sheet.getAnswers()
@@ -57,11 +56,11 @@ public class SheetController {
                 .collect(Collectors.toList());
     }
 
-    private SheetEntity toEntity(AddSheetDto dto) {
+    private SheetEntity toEntity(AddSheetDto dto, Long userId) {
         return new SheetEntity(
                 null,
                 dto.getPollCode(),
-                dto.getUserId(),
+                userId,
                 dto.getVersion(),
                 dto.getAnswers()
         );

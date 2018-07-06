@@ -3,11 +3,12 @@ package com.application.initialization.configuration;
 import com.application.dataproviders.category.CategoryRepository;
 import com.application.dataproviders.poll.PollRepository;
 import com.application.dataproviders.session.SessionRepository;
-import com.application.dataproviders.user.UserRepository;
 import com.application.initialization.core.DbInitializer;
-import com.application.initialization.core.UserInitializer;
 import com.application.initialization.core.category.CategoryInitializer;
 import com.application.initialization.core.poll.PollInitializer;
+import com.application.initialization.core.user.UserInitializer;
+import com.application.initialization.core.user.UserWithCustomIdRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -26,8 +27,11 @@ public class DbInitializerConfiguration {
         return new PollInitializer(c, p, "polls_en.json");
     }
 
+    @Autowired
+    public UserWithCustomIdRepository userWithCustomIdRepository;
+
     @Bean
-    public UserInitializer userInitializer(UserRepository u, SessionRepository s) {
+    public UserInitializer userInitializer(UserWithCustomIdRepository u, SessionRepository s) {
         return new UserInitializer(u, s);
     }
 

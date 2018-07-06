@@ -14,14 +14,6 @@ import java.util.List;
 class GetSheetDto {
     @NotNull
     @NotBlank
-    private final Long id;
-
-    @NotNull
-    @NotBlank
-    private final Long userId;
-
-    @NotNull
-    @NotBlank
     private final String pollCode;
 
     @NotNull

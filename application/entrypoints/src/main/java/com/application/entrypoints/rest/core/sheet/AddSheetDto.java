@@ -15,10 +15,6 @@ import java.util.List;
 class AddSheetDto {
     @NotNull
     @NotBlank
-    private final Long userId;
-
-    @NotNull
-    @NotBlank
     private final String pollCode;
 
     @NotNull

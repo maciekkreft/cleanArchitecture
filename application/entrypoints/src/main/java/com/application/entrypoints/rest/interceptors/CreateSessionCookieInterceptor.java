@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Optional;
 
-import static com.application.entrypoints.rest.configuration.Constants.Cookie.SESSION;
+import static com.application.entrypoints.rest.configuration.Constants.Cookies.SESSION_ID;
 
 @Slf4j
 @AllArgsConstructor
@@ -21,11 +21,11 @@ public class CreateSessionCookieInterceptor extends HandlerInterceptorAdapter {
 
     @Override
     public boolean preHandle(HttpServletRequest req, HttpServletResponse res, Object h) throws IOException {
-        Optional<Cookie> sessionCookie = CookieHelper.findCookie(req, SESSION);
+        Optional<Cookie> sessionCookie = CookieHelper.findCookie(req, SESSION_ID);
 
         if (!sessionCookie.isPresent()) {
             String session = sessionUseCase.createSession();
-            res.addCookie(new Cookie(SESSION, session));
+            res.addCookie(new Cookie(SESSION_ID, session));
             res.sendRedirect(req.getRequestURI());
             return false;
         }

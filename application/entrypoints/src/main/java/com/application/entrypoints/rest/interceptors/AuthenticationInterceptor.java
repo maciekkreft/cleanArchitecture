@@ -9,8 +9,8 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import static com.application.entrypoints.rest.configuration.Constants.Cookie.SESSION;
-import static com.application.entrypoints.rest.configuration.Constants.Cookie.USER;
+import static com.application.entrypoints.rest.configuration.Constants.Cookies.SESSION_ID;
+import static com.application.entrypoints.rest.configuration.Constants.Cookies.USER_ID;
 import static com.application.entrypoints.rest.interceptors.CookieHelper.findCookie;
 
 @AllArgsConstructor
@@ -20,11 +20,12 @@ public class AuthenticationInterceptor extends HandlerInterceptorAdapter {
 
     @Override
     public boolean preHandle(HttpServletRequest req, HttpServletResponse res, Object h) {
-        Long userId = Long.valueOf(findCookie(req, USER).get().getValue());
-        String sessionId = findCookie(req, SESSION).get().getValue();
+        Long userId = Long.valueOf(findCookie(req, USER_ID).get().getValue());
+        String sessionId = findCookie(req, SESSION_ID).get().getValue();
 
         try {
             userUseCase.authenticate(userId, sessionId);
+            req.setAttribute(USER_ID, userId);
         } catch (ValidationException e) {
             throw new UnauthorizedException(e);
         }

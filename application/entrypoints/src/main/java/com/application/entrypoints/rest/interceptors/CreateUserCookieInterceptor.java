@@ -14,8 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Optional;
 
-import static com.application.entrypoints.rest.configuration.Constants.Cookie.SESSION;
-import static com.application.entrypoints.rest.configuration.Constants.Cookie.USER;
+import static com.application.entrypoints.rest.configuration.Constants.Cookies.SESSION_ID;
+import static com.application.entrypoints.rest.configuration.Constants.Cookies.USER_ID;
 
 @AllArgsConstructor
 public class CreateUserCookieInterceptor extends HandlerInterceptorAdapter {
@@ -25,8 +25,8 @@ public class CreateUserCookieInterceptor extends HandlerInterceptorAdapter {
 
     @Override
     public boolean preHandle(HttpServletRequest req, HttpServletResponse res, Object h) throws IOException {
-        Optional<Cookie> userCookie = CookieHelper.findCookie(req, USER);
-        Optional<Cookie> sessionCookie = CookieHelper.findCookie(req, SESSION);
+        Optional<Cookie> userCookie = CookieHelper.findCookie(req, USER_ID);
+        Optional<Cookie> sessionCookie = CookieHelper.findCookie(req, SESSION_ID);
 
         if (!userCookie.isPresent()) {
 
@@ -37,7 +37,7 @@ public class CreateUserCookieInterceptor extends HandlerInterceptorAdapter {
             }
 
             UserEntity user = userUseCase.createUser(sessionCookie.get().getValue());
-            res.addCookie(new Cookie(USER, user.getId()));
+            res.addCookie(new Cookie(USER_ID, user.getId()));
             res.sendRedirect(req.getRequestURI());
             return false;
         }

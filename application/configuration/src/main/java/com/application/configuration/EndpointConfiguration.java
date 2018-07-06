@@ -2,14 +2,10 @@ package com.application.configuration;
 
 import com.application.core.category.CategoryUseCase;
 import com.application.core.poll.PollUseCase;
-import com.application.core.session.SessionUseCase;
 import com.application.core.sheet.SheetUseCase;
-import com.application.core.user.UserUseCase;
 import com.application.entrypoints.rest.core.category.CategoryController;
 import com.application.entrypoints.rest.core.poll.PollController;
-import com.application.entrypoints.rest.core.session.SessionController;
 import com.application.entrypoints.rest.core.sheet.SheetController;
-import com.application.entrypoints.rest.core.user.UserController;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -27,17 +23,8 @@ public class EndpointConfiguration {
     }
 
     @Bean
-    public UserController userController(UserUseCase userUseCase) {
-        return new UserController(userUseCase);
-    }
-
-    @Bean
     public SheetController sheetController(SheetUseCase sheetUseCase) {
         return new SheetController(sheetUseCase);
     }
 
-    @Bean
-    public SessionController sessionController(SessionUseCase sessionUseCase) {
-        return new SessionController(sessionUseCase);
-    }
 }

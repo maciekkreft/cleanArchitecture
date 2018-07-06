@@ -14,7 +14,7 @@ public class UserUseCase {
         return userDataGateway.createUser(sessionId);
     }
 
-    private void authenticate(Long userId, String sessionId) {
+    public void authenticate(Long userId, String sessionId) {
         sessionUseCase.verifySession(sessionId);
         if(!userDataGateway.exists(userId)) {
             throw new UserNotFoundException(userId);

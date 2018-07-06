@@ -38,7 +38,8 @@ subprojects {
 
             entrypoints  : [
                     "org.springframework.boot:spring-boot-starter-web:${springboot_version}",
-                    "org.projectlombok:lombok:${lombok_version}"
+                    "org.projectlombok:lombok:${lombok_version}",
+                    "com.alibaba:fastjson:${fastjson_version}"
             ],
     ]
 

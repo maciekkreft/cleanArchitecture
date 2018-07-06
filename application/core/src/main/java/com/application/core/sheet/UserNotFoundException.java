@@ -1,6 +1,8 @@
 package com.application.core.sheet;
 
-public class UserNotFoundException extends RuntimeException {
+import com.application.core.ValidationException;
+
+public class UserNotFoundException extends ValidationException {
     public UserNotFoundException(Long userId) {
         super(String.format("User #%d does not exists", userId));
     }

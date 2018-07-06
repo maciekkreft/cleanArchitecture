@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 @Slf4j
 @ResponseStatus(HttpStatus.NOT_FOUND)
-public class NotFoundException extends RuntimeException {
+public class NotFoundException extends RestException {
     public NotFoundException(Exception e) {
         super(e.getMessage());
         log.error(Marker.ANY_MARKER, e);

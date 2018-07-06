@@ -1,6 +1,8 @@
 package com.application.core.sheet;
 
-public class SheetAlreadyExists extends RuntimeException {
+import com.application.core.ValidationException;
+
+public class SheetAlreadyExists extends ValidationException {
     public SheetAlreadyExists(SheetEntity sheet) {
         super(String.format(
                 "Sheet for user %s and poll %s with %d version already exists",

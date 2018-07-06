@@ -30,7 +30,7 @@ public class UserDataMapper implements UserDataGateway {
     }
 
     private UserEntity toEntity(User u) {
-        return new UserEntity(u.getId(), u.getSessionId());
+        return new UserEntity(u.getId().toString(), u.getSessionId());
     }
 
     private User toRow(String sessionId) {

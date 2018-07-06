@@ -5,21 +5,19 @@ import com.application.core.user.UserUseCase;
 import com.application.entrypoints.rest.interceptors.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
-@EnableWebMvc
 public class EndpointInterceptorConfiguration {
     @Bean
-    public LoggingInterceptor loggingInterceptor(){
+    public LoggingInterceptor loggingInterceptor() {
         return new LoggingInterceptor();
     }
 
     @Bean
-    public CreateUserCookieInterceptor createUserCookieInterceptor(UserUseCase u) {
-        return new CreateUserCookieInterceptor(u);
+    public CreateUserCookieInterceptor createUserCookieInterceptor(UserUseCase u, SessionUseCase s) {
+        return new CreateUserCookieInterceptor(u, s);
     }
 
     @Bean
@@ -33,8 +31,8 @@ public class EndpointInterceptorConfiguration {
     }
 
     @Bean
-    public RestExceptionHandler globalExceptionHandler() {
-        return new RestExceptionHandler();
+    public InterceptorExceptionHandler globalExceptionHandler() {
+        return new InterceptorExceptionHandler();
     }
 
     @Bean

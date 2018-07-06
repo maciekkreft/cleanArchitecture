@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
 public class SheetController {
     private final SheetUseCase sheetUseCase;
 
-    @GetMapping("poll/{pollCode}")
+    @GetMapping("/{pollCode}")
     public List<GetSheetDto> listAllSheets(@PathVariable String pollCode,
                                            @RequestHeader Long userId
     ) {

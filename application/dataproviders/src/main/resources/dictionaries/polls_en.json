@@ -25,7 +25,8 @@
       "scores": {
         "medium": 4,
         "high": 7
-      }
+      },
+      "supplements": ["ps", "pc"]
     },
     {
       "code": "dopamine",
@@ -43,7 +44,8 @@
       "scores": {
         "medium": 2,
         "high": 4
-      }
+      },
+      "supplements": ["tyrosine", "phenylalanine"]
     },
     {
       "code": "serotonin",
@@ -70,7 +72,8 @@
       "scores": {
         "medium": 4,
         "high": 7
-      }
+      },
+      "supplements": ["5htp", "melatonin", "theanine"]
     },
     {
       "code": "gaba",
@@ -90,7 +93,8 @@
       "scores": {
         "medium": 2,
         "high": 4
-      }
+      },
+      "supplements": ["gaba"]
     },
     {
       "code": "acetylcholine",
@@ -110,7 +114,8 @@
       "scores": {
         "medium": 2,
         "high": 4
-      }
+      },
+      "supplements": ["pc"]
     },
     {
       "code": "methylation",
@@ -140,7 +145,8 @@
       "scores": {
         "medium": 8,
         "high": 8
-      }
+      },
+      "supplements": []
     },
     {
       "code": "vitamin-d",
@@ -169,7 +175,8 @@
       "scores": {
         "medium": 8,
         "high": 8
-      }
+      },
+      "supplements": ["vitaminD3"]
     },
     {
       "code": "magnesium",
@@ -205,7 +212,8 @@
       "scores": {
         "medium": 12,
         "high": 12
-      }
+      },
+      "supplements": ["magnesium"]
     },
     {
       "code": "zinc",
@@ -240,7 +248,8 @@
       "scores": {
         "medium": 12,
         "high": 12
-      }
+      },
+      "supplements": ["zinc"]
     },
     {
       "code": "insulin",
@@ -278,7 +287,8 @@
       "scores": {
         "medium": 9,
         "high": 14
-      }
+      },
+      "supplements": ["chromium", "glucomannan"]
     },
     {
       "code": "thyroid",
@@ -313,7 +323,8 @@
       "scores": {
         "medium": 7,
         "high": 11
-      }
+      },
+      "supplements": []
     },
     {
       "code": "sexual-women",
@@ -355,7 +366,8 @@
       "scores": {
         "medium": 9,
         "high": 14
-      }
+      },
+      "supplements": ["primrose", "chasteberry", "dim", "cohosh"]
     },
     {
       "code": "sexual-men",
@@ -380,7 +392,8 @@
       "scores": {
         "medium": 4,
         "high": 6
-      }
+      },
+      "supplements": ["tribulus"]
     },
     {
       "code": "inflammation",
@@ -412,7 +425,8 @@
       "scores": {
         "medium": 6,
         "high": 9
-      }
+      },
+      "supplements": []
     },
     {
       "code": "gut",
@@ -451,7 +465,8 @@
       "scores": {
         "medium": 8,
         "high": 12
-      }
+      },
+      "supplements": ["enzymes", "saccharomyces", "glutamine"]
     },
     {
       "code": "toxins",
@@ -483,7 +498,8 @@
       "scores": {
         "medium": 6,
         "high": 9
-      }
+      },
+      "supplements": ["nac", "vitaminC", "thistle"]
     },
     {
       "code": "loss-energy",
@@ -515,7 +531,8 @@
       "scores": {
         "medium": 6,
         "high": 9
-      }
+      },
+      "supplements": ["rhodiola", "sginseng", "aginseng"]
     },
     {
       "code": "oxidative-stress",
@@ -547,7 +564,8 @@
       "scores": {
         "medium": 9,
         "high": 9
-      }
+      },
+      "supplements": ["carnitine", "lipoic", "nadh"]
     },
     {
       "code": "adrenal",
@@ -582,7 +600,8 @@
       "scores": {
         "medium": 7,
         "high": 10
-      }
+      },
+      "supplements": ["ashwagandha"]
     }
   ]
 }

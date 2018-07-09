@@ -21,8 +21,8 @@ import org.springframework.context.annotation.Configuration;
 public class DataProviderConfiguration {
 
     @Bean
-    public PollDataMapper pollDataMapper(PollRepository p, CategoryRepository c) {
-        return new PollDataMapper(p, c);
+    public PollDataMapper pollDataMapper(PollRepository p, CategoryRepository c, SupplementRepository s) {
+        return new PollDataMapper(p, c, s);
     }
 
     @Bean

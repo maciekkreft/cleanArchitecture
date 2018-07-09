@@ -13,6 +13,7 @@ public class PollEntity {
     private final List<String> questions;
     private final int mediumScore;
     private final int highScore;
+    private final List<String> supplements;
 
     public String getCategoryCode() {
         return getCategory().getCode();

@@ -36,4 +36,8 @@ class AddPollDto {
     @NotNull
     @NotBlank
     private final int highScore;
+
+    @NotNull
+    @NotEmpty
+    private final List<String> supplements;
 }

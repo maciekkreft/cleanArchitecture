@@ -24,8 +24,8 @@ public class DbInitializerConfiguration {
     }
 
     @Bean
-    public PollInitializer pollInitializer(CategoryRepository c, PollRepository p) {
-        return new PollInitializer(c, p, "polls_en.json");
+    public PollInitializer pollInitializer(CategoryRepository c, PollRepository p, SupplementRepository s) {
+        return new PollInitializer(c, p, s, "polls_en.json");
     }
 
     @Bean
@@ -40,13 +40,13 @@ public class DbInitializerConfiguration {
 
     @Bean
     public DbInitializer mainInitializer(
+            SupplementInitializer s,
             CategoryInitializer c,
             PollInitializer p,
-            UserInitializer u,
-            SupplementInitializer s
+            UserInitializer u
     ) {
         return new DbInitializer(Arrays.asList(
-                c, p, u, s
+               s, c, p, u
         ));
     }
 

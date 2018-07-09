@@ -5,9 +5,12 @@ import com.application.dataproviders.category.Category;
 import com.application.dataproviders.category.CategoryRepository;
 import com.application.core.poll.PollDataGateway;
 import com.application.core.poll.PollEntity;
+import com.application.dataproviders.supplement.Supplement;
+import com.application.dataproviders.supplement.SupplementRepository;
 import lombok.AllArgsConstructor;
 
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
@@ -16,6 +19,7 @@ public class PollDataMapper implements PollDataGateway {
 
     private final PollRepository pollRepository;
     private final CategoryRepository categoryRepository;
+    private final SupplementRepository supplementRepository;
 
     @Override
     public List<PollEntity> getAllPolls() {
@@ -41,17 +45,22 @@ public class PollDataMapper implements PollDataGateway {
         List<String> questions = p.getQuestions().stream()
                 .map(q -> q.getContent())
                 .collect(Collectors.toList());
+        List<String> supplements = p.getSupplements().stream()
+                .map(s -> s.getCode())
+                .collect(Collectors.toList());
         return new PollEntity(
                 p.getCode(),
                 p.getName(),
                 toEntity(p.getCategory()),
                 questions,
                 Integer.valueOf(p.getScores().getMedium()),
-                Integer.valueOf(p.getScores().getHigh()));
+                Integer.valueOf(p.getScores().getHigh()),
+                supplements
+        );
     }
 
     private CategoryEntity toEntity(Category c) {
-       return new CategoryEntity(c.getCode(), c.getName());
+        return new CategoryEntity(c.getCode(), c.getName());
     }
 
     private List<PollEntity> toEntity(Iterable<Poll> pollRows) {
@@ -65,12 +74,19 @@ public class PollDataMapper implements PollDataGateway {
         List<Question> questions = poll.getQuestions().stream()
                 .map(s -> new Question(s))
                 .collect(Collectors.toList());
+        Map<String, Supplement> supplementByCode = StreamSupport
+                .stream(supplementRepository.findAll().spliterator(), false)
+                .collect(Collectors.toMap(s -> s.getCode(), s -> s));
         return new Poll(
                 poll.getCode(),
                 poll.getName(),
                 categoryRow,
                 questions,
-                new Score(poll.getMediumScore(), poll.getHighScore()));
+                new Score(poll.getMediumScore(), poll.getHighScore()),
+                poll.getSupplements().stream()
+                        .map(p -> supplementByCode.get(p))
+                        .collect(Collectors.toList())
+        );
     }
 
 }

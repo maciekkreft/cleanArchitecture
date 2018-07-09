@@ -255,6 +255,25 @@
       "name": "Asian ginseng",
       "amount": "",
       "description": ""
+    },
+    //missing
+    {
+      "code": "ashwagandha",
+      "name": "Ashwagandha",
+      "amount": "",
+      "description": ""
+    },
+    {
+      "code": "tribulus",
+      "name": "Tribulus",
+      "amount": "",
+      "description": ""
+    },
+    {
+      "code": "zinc",
+      "name": "Zinc",
+      "amount": "",
+      "description": ""
     }
   ]
 }

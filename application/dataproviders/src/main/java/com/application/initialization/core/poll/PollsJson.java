@@ -1,5 +1,6 @@
 package com.application.initialization.core.poll;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import java.util.ArrayList;
@@ -17,6 +18,7 @@ public class PollsJson {
         private final String category;
         private final List<String> questions;
         private final ScoreJson scores;
+        private final List<String> supplements;
 
         @Data
         public static class ScoreJson {

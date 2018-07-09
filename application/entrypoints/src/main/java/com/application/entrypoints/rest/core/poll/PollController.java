@@ -46,7 +46,8 @@ public class PollController {
                 toDto(poll.getCategory()),
                 poll.getQuestions(),
                 poll.getMediumScore(),
-                poll.getHighScore()
+                poll.getHighScore(),
+                poll.getSupplements()
         );
     }
 
@@ -67,7 +68,8 @@ public class PollController {
                 new CategoryEntity(dto.getCategoryCode(), null),
                 dto.getQuestions(),
                 dto.getMediumScore(),
-                dto.getHighScore()
+                dto.getHighScore(),
+                dto.getSupplements()
         );
     }
 

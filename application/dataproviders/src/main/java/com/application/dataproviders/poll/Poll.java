@@ -2,6 +2,7 @@ package com.application.dataproviders.poll;
 
 import com.application.dataproviders.IdRow;
 import com.application.dataproviders.category.Category;
+import com.application.dataproviders.supplement.Supplement;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -33,5 +34,8 @@ public class Poll extends IdRow {
     @Embedded
     @Column(nullable = false)
     private final Score scores;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    private final List<Supplement> supplements;
 
 }

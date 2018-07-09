@@ -28,5 +28,6 @@ export interface Poll {
 
 export default interface State {
   polls: Polls,
-  categories: Categories
+  categories: Categories,
+  initialized: boolean
 }

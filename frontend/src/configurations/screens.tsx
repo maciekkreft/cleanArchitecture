@@ -1,5 +1,8 @@
 import * as React from 'react'
-import { Header, Navigation, PollsList, PollWithSheet } from '../containers'
+import { Header, Init, Navigation, PollsList, PollWithSheet } from '../containers'
+
+export const InitScreen = () =>
+  <Init />
 
 export const PollListScreen = () =>
   <React.Fragment>

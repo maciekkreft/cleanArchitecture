@@ -5,24 +5,26 @@ import com.application.core.user.UserUseCase;
 import com.application.entrypoints.rest.interceptors.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
 public class EndpointInterceptorConfiguration {
+
     @Bean
     public LoggingInterceptor loggingInterceptor() {
         return new LoggingInterceptor();
     }
 
     @Bean
-    public CreateUserCookieInterceptor createUserCookieInterceptor(UserUseCase u, SessionUseCase s) {
-        return new CreateUserCookieInterceptor(u, s);
+    public CreateUserCookieInterceptor createUserCookieInterceptor(UserUseCase u, SessionUseCase s, CorsHelper c) {
+        return new CreateUserCookieInterceptor(u, s, c);
     }
 
     @Bean
-    public CreateSessionCookieInterceptor createSessionCookieInterceptor(SessionUseCase s) {
-        return new CreateSessionCookieInterceptor(s);
+    public CreateSessionCookieInterceptor createSessionCookieInterceptor(SessionUseCase s, CorsHelper c) {
+        return new CreateSessionCookieInterceptor(s, c);
     }
 
     @Bean
@@ -36,7 +38,7 @@ public class EndpointInterceptorConfiguration {
     }
 
     @Bean
-    public WebMvcConfigurer interceptorConfiguration(
+    public WebMvcConfigurer interceptorConfigurer(
             LoggingInterceptor l,
             CreateUserCookieInterceptor u,
             CreateSessionCookieInterceptor s,
@@ -49,6 +51,22 @@ public class EndpointInterceptorConfiguration {
                 r.addInterceptor(s);
                 r.addInterceptor(u);
                 r.addInterceptor(a);
+            }
+        };
+    }
+
+    @Bean
+    public CorsHelper corsHelper() {
+        return new CorsHelper("http://localhost:3000");
+    }
+
+    @Bean
+    public WebMvcConfigurer corsConfigurer() {
+        return new WebMvcConfigurer() {
+            @Override
+            public void addCorsMappings(CorsRegistry registry) {
+                registry.addMapping("/**")
+                        .allowCredentials(true);
             }
         };
     }

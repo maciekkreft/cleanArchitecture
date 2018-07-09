@@ -27,9 +27,6 @@ public class DbInitializerConfiguration {
         return new PollInitializer(c, p, "polls_en.json");
     }
 
-    @Autowired
-    public UserWithCustomIdRepository userWithCustomIdRepository;
-
     @Bean
     public UserInitializer userInitializer(UserWithCustomIdRepository u, SessionRepository s) {
         return new UserInitializer(u, s);

@@ -18,6 +18,7 @@ import static com.application.entrypoints.rest.configuration.Constants.Cookies.S
 public class CreateSessionCookieInterceptor extends HandlerInterceptorAdapter {
 
     private final SessionUseCase sessionUseCase;
+    private final CorsHelper corsHelper;
 
     @Override
     public boolean preHandle(HttpServletRequest req, HttpServletResponse res, Object h) throws IOException {
@@ -26,6 +27,7 @@ public class CreateSessionCookieInterceptor extends HandlerInterceptorAdapter {
         if (!sessionCookie.isPresent()) {
             String session = sessionUseCase.createSession();
             res.addCookie(new Cookie(SESSION_ID, session));
+            corsHelper.addCorsSupport(res);
             res.sendRedirect(req.getRequestURI());
             return false;
         }

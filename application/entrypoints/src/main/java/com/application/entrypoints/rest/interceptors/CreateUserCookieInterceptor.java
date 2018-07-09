@@ -22,6 +22,7 @@ public class CreateUserCookieInterceptor extends HandlerInterceptorAdapter {
 
     private final UserUseCase userUseCase;
     private final SessionUseCase sessionUseCase;
+    private final CorsHelper corsHelper;
 
     @Override
     public boolean preHandle(HttpServletRequest req, HttpServletResponse res, Object h) throws IOException {
@@ -38,6 +39,7 @@ public class CreateUserCookieInterceptor extends HandlerInterceptorAdapter {
 
             UserEntity user = userUseCase.createUser(sessionCookie.get().getValue());
             res.addCookie(new Cookie(USER_ID, user.getId()));
+            corsHelper.addCorsSupport(res);
             res.sendRedirect(req.getRequestURI());
             return false;
         }

@@ -6,7 +6,8 @@ import * as Screens from './screens'
 export default () => (
   <Router>
     <React.Fragment>
-      <Route exact path="/" component={Screens.PollListScreen} />
+      <Route exact path="/" component={Screens.InitScreen} />
+      <Route exact path="/polls" component={Screens.PollListScreen} />
       <Route exact path="/polls/:code" component={Screens.PollScreen} />
     </React.Fragment>
   </Router>

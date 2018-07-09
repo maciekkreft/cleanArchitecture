@@ -11,7 +11,6 @@ import com.application.dataproviders.sheet.SheetRepository;
 import com.application.dataproviders.user.UserDataMapper;
 import com.application.dataproviders.user.UserRepository;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -19,44 +18,29 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class DataProviderConfiguration {
 
-    @Autowired
-    private final PollRepository pollRepository;
-
-    @Autowired
-    private final CategoryRepository categoryRepository;
-
-    @Autowired
-    private final UserRepository userRepository;
-
-    @Autowired
-    private final SheetRepository sheetRepository;
-
-    @Autowired
-    private final SessionRepository sessionRepository;
-
     @Bean
-    public PollDataMapper pollDataMapper() {
-        return new PollDataMapper(pollRepository, categoryRepository);
+    public PollDataMapper pollDataMapper(PollRepository p, CategoryRepository c) {
+        return new PollDataMapper(p, c);
     }
 
     @Bean
-    public CategoryDataMapper categoryDataMapper() {
-        return new CategoryDataMapper(categoryRepository);
+    public CategoryDataMapper categoryDataMapper(CategoryRepository c) {
+        return new CategoryDataMapper(c);
     }
 
     @Bean
-    public UserDataMapper userDataMapper() {
-        return new UserDataMapper(userRepository);
+    public UserDataMapper userDataMapper(UserRepository u) {
+        return new UserDataMapper(u);
     }
 
     @Bean
-    public SheetDataMapper sheetDataMapper() {
-        return new SheetDataMapper(sheetRepository, pollRepository, userRepository);
+    public SheetDataMapper sheetDataMapper(SheetRepository s, PollRepository p, UserRepository u) {
+        return new SheetDataMapper(s, p, u);
     }
 
     @Bean
-    public SessionDataMapper sessionDataMapper() {
-        return new SessionDataMapper(sessionRepository);
+    public SessionDataMapper sessionDataMapper(SessionRepository s) {
+        return new SessionDataMapper(s);
     }
 
 }

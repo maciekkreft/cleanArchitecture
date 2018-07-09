@@ -4,7 +4,7 @@ import {
 import { KeyboardArrowLeft, KeyboardArrowRight } from '@material-ui/icons'
 import * as React from 'react'
 import SwipeableViews from 'react-swipeable-views'
-import { State } from '../interfaces';
+import { Action, State } from '../interfaces';
 
 const styles = (theme: Theme) => createStyles({
   root: {
@@ -32,6 +32,8 @@ interface Props {
   classes: any
   theme: Theme
   poll: State.Poll
+  sheet: State.Sheet
+  addAnswer: (payload: Action.AnswerPayload) => void
 }
 
 interface S {
@@ -59,50 +61,73 @@ class SwipeableTextMobileStepper extends React.Component<Props, S> {
     this.setState({ activeStep })
   }
 
+  public handleAnswer = (value: boolean) => {
+    this.props.addAnswer({
+      index: this.state.activeStep,
+      pollCode: this.props.poll.code,
+      value
+    })
+    this.handleNext()
+  }
+
+  public handleNo = () => {
+    this.handleAnswer(false)
+  }
+
+  public handleYes = () => {
+    this.handleAnswer(true)
+  }
+
   public render() {
-    const { classes, theme, poll } = this.props
+    const { classes, theme, poll, sheet } = this.props
     const { activeStep } = this.state
 
-    const steps = poll.questions.map(q => ({ 'label': q }))
+    const steps = poll ? poll.questions.map(q => ({ 'label': q })) : []
     const maxSteps = steps.length
 
     return (
-      <div className={classes.root}>
-        <SwipeableViews
-          axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
-          index={this.state.activeStep}
-          onChangeIndex={this.handleStepChange}
-          enableMouseEvents
-        >
-          {steps.map(step => (
-            <React.Fragment key={step.label}>
-              <Paper key={step.label} square elevation={0} className={classes.header}>
-                <Typography variant="subheading">{step.label}</Typography>
-              </Paper>
-              <Paper className={classes.actions}>
-                <Button variant="outlined" color="primary" onClick={this.handleNext}>No</Button>
-                <Button variant="outlined" color="primary" onClick={this.handleNext}>Yes</Button>
-              </Paper>
-            </React.Fragment>
-          ))}
-        </SwipeableViews>
-        <MobileStepper
-          steps={maxSteps}
-          position="static"
-          activeStep={activeStep}
-          className={classes.mobileStepper}
-          backButton={
-            <Button size="small" onClick={this.handleBack} disabled={activeStep === 0}>
-              {theme.direction === 'rtl' ? <KeyboardArrowRight /> : <KeyboardArrowLeft />}
-            </Button>
-          }
-          nextButton={
-            <Button size="small" onClick={this.handleNext} disabled={activeStep === maxSteps - 1}>
-              {theme.direction === 'rtl' ? <KeyboardArrowLeft /> : <KeyboardArrowRight />}
-            </Button>
-          }
-        />
-      </div>
+      poll
+        ? <div className={classes.root}>
+          <SwipeableViews
+            axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+            index={this.state.activeStep}
+            onChangeIndex={this.handleStepChange}
+            enableMouseEvents
+          >
+            {steps.map(step => (
+              <React.Fragment key={step.label}>
+                <Paper key={step.label} square elevation={0} className={classes.header}>
+                  <Typography variant="subheading">{step.label}</Typography>
+                </Paper>
+                <Paper className={classes.actions}>
+                  <Button
+                    variant={(sheet && sheet[activeStep] === false) ? 'contained' : 'outlined'}
+                    color="primary" onClick={this.handleNo}>No</Button>
+                  <Button
+                    variant={(sheet && sheet[activeStep] === true) ? 'contained' : 'outlined'}
+                    color="primary" onClick={this.handleYes}>Yes</Button>
+                </Paper>
+              </React.Fragment>
+            ))}
+          </SwipeableViews>
+          <MobileStepper
+            steps={maxSteps}
+            position="static"
+            activeStep={activeStep}
+            className={classes.mobileStepper}
+            backButton={
+              <Button size="small" onClick={this.handleBack} disabled={activeStep === 0}>
+                {theme.direction === 'rtl' ? <KeyboardArrowRight /> : <KeyboardArrowLeft />}
+              </Button>
+            }
+            nextButton={
+              <Button size="small" onClick={this.handleNext} disabled={activeStep === maxSteps - 1}>
+                {theme.direction === 'rtl' ? <KeyboardArrowLeft /> : <KeyboardArrowRight />}
+              </Button>
+            }
+          />
+        </div>
+        : null
     )
   }
 }

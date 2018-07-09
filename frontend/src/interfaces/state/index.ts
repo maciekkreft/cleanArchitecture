@@ -26,8 +26,19 @@ export interface Poll {
   highScore: number
 }
 
+export interface Sheets {
+  byCode: {
+    [pollCode: string]: Sheet
+  }
+}
+
+export interface Sheet {
+  [index: number]: boolean
+}
+
 export default interface State {
   polls: Polls,
   categories: Categories,
+  sheets: Sheets,
   initialized: boolean
 }

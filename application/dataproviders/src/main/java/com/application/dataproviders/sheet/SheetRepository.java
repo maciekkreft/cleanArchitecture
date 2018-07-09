@@ -7,11 +7,6 @@ import java.util.List;
 
 @Repository
 public interface SheetRepository extends CrudRepository<Sheet, Long> {
-    boolean existsByPollCodeAndUserIdAndVersion(
-            String pollCode,
-            Long userId,
-            Long version
-    );
-
     List<Sheet> findAllByPollCodeAndUserId(String pollCode, Long userId);
+    Sheet findTopByPollCodeOrderByVersionDesc(String pollCode);
 }

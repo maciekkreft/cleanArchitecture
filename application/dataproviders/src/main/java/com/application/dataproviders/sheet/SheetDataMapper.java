@@ -35,14 +35,13 @@ public class SheetDataMapper implements SheetDataGateway {
     }
 
     private SheetEntity toEntity(Sheet sheet) {
-        List<String> answers = sheet.getAnswers().stream()
-                .map(a -> a.getValue() ? "y" : "n")
+        List<Boolean> answers = sheet.getAnswers().stream()
+                .map(a -> a.getValue())
                 .collect(Collectors.toList());
         return new SheetEntity(
-                sheet.getId(),
-                sheet.getPoll().getCode(),
-                sheet.getUser().getId(),
                 sheet.getVersion(),
+                sheet.getUser().getId(),
+                sheet.getPoll().getCode(),
                 answers
         );
     }
@@ -50,18 +49,17 @@ public class SheetDataMapper implements SheetDataGateway {
     private Sheet toRow(SheetEntity sheet) {
         Poll poll = pollRepository.findByCode(sheet.getPollCode());
         User user = userRepository.findById(sheet.getUserId()).get();
+        long version = nextVersion(sheet);
         List<Answer> answers = sheet.getAnswers().stream()
-                .map(s -> new Answer(s.equals("y")))
+                .map(s -> new Answer(s))
                 .collect(Collectors.toList());
-        return new Sheet(poll, user, sheet.getVersion(), answers);
+        return new Sheet(poll, user, version, answers);
     }
 
-    @Override
-    public boolean exists(SheetEntity sheet) {
-        return sheetRepository.existsByPollCodeAndUserIdAndVersion(
-                sheet.getPollCode(),
-                sheet.getUserId(),
-                sheet.getVersion()
-        );
+    private long nextVersion(SheetEntity sheet) {
+        Sheet sheetWithMaxVersion = sheetRepository.findTopByPollCodeOrderByVersionDesc(sheet.getPollCode());
+        long maxVersion = sheetWithMaxVersion != null ? sheetWithMaxVersion.getVersion() : -1L;
+        return maxVersion + 1L;
     }
+
 }

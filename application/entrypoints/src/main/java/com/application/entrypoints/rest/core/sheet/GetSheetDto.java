@@ -12,15 +12,7 @@ import java.util.List;
 @NoArgsConstructor(force = true)
 @AllArgsConstructor
 class GetSheetDto {
-    @NotNull
-    @NotBlank
+    private final long version;
     private final String pollCode;
-
-    @NotNull
-    @NotBlank
-    private final Long version;
-
-    @NotNull
-    @NotBlank
-    private final List<String> answers;
+    private final List<Boolean> answers;
 }

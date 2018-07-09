@@ -18,9 +18,6 @@ class AddSheetDto {
     private final String pollCode;
 
     @NotNull
-    private final Long version;
-
-    @NotNull
     @NotEmpty
-    private final List<String> answers;
+    private final List<Boolean> answers;
 }

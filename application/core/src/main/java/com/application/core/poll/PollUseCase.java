@@ -11,7 +11,7 @@ public class PollUseCase {
     private final CategoryDataGateway categoryDataGateway;
 
     public List<PollEntity> listAllPolls() {
-        return pollDataGateway.getAllBooks();
+        return pollDataGateway.getAllPolls();
     }
 
     public PollEntity addPoll(PollEntity poll) {

@@ -23,8 +23,10 @@ public class SheetUseCase {
         if (!userDataGateway.exists(sheet.getUserId())) {
             throw new UserNotFoundException(sheet);
         }
-        if (sheetDataGateway.exists(sheet)) {
-            throw new SheetAlreadyExists(sheet);
+        int a = sheet.getAnswers().size();
+        int q = pollDataGateway.getPollByCode(sheet.getPollCode()).getQuestions().size();
+        if(a != q) {
+            throw new MissingAnswersInSheet(sheet, a, q);
         }
         return sheetDataGateway.addSheet(sheet);
     }

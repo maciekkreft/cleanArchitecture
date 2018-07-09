@@ -18,7 +18,7 @@ public class PollDataMapper implements PollDataGateway {
     private final CategoryRepository categoryRepository;
 
     @Override
-    public List<PollEntity> getAllBooks() {
+    public List<PollEntity> getAllPolls() {
         return toEntity(pollRepository.findAll());
     }
 
@@ -30,6 +30,11 @@ public class PollDataMapper implements PollDataGateway {
     @Override
     public boolean exists(String pollCode) {
         return pollRepository.existsByCode(pollCode);
+    }
+
+    @Override
+    public PollEntity getPollByCode(String pollCode) {
+        return toEntity(pollRepository.findByCode(pollCode));
     }
 
     private PollEntity toEntity(Poll p) {

@@ -1,0 +1,260 @@
+{
+  "supplements": [
+    //basic
+    {
+      "code": "multivitamin",
+      "name": "Multivitamin",
+      "amount": "",
+      "description": ""
+    },
+    {
+      "code": "calcium",
+      "name": "Calcium",
+      "amount": "",
+      "description": ""
+    },
+    {
+      "code": "magnesium",
+      "name": "Magnesium",
+      "amount": "",
+      "description": ""
+    },
+    {
+      "code": "vitaminD3",
+      "name": "Vitamin D3",
+      "amount": "",
+      "description": ""
+    },
+    {
+      "code": "bcomplex",
+      "name": "B complex vitamins",
+      "amount": "",
+      "description": ""
+    },
+    {
+      "code": "omega3",
+      "name": "Omega-3 fats",
+      "amount": "",
+      "description": ""
+    },
+    {
+      "code": "probiotics",
+      "name": "Probiotics",
+      "amount": "",
+      "description": ""
+    },
+    //phospholipid
+    {
+      "code": "ps",
+      "name": "PS (phosphatidyl-serine)",
+      "amount": "2 x 240mg",
+      "description": "Take 2 capsule twice a day, once with breakfast and once with dinner, for two months. After two months, take 1 capsule twice a day, once with breakfast and once with dinner."
+    },
+    {
+      "code": "pc",
+      "name": "PC (phosphatidyl-choline)",
+      "amount": "",
+      "description": ""
+    },
+
+    //serotonine
+    {
+      "code": "5htp",
+      "name": "5-HTP (5-hydroxy-tryptophan)",
+      "amount": "2 x 50mg",
+      "description": "Take 1 capsule twice a day, once mid afternoon and once before bed. Add additional capsule mid afternoon or at bedtime until you get to 150mg or 3 capsules total."
+    },
+    {
+      "code": "melatonin",
+      "name": "Melatonin",
+      "amount": "1 x 2mg",
+      "description": "Take 1 capsule before bed"
+    },
+    {
+      "code": "gaba",
+      "name": "GABA",
+      "amount": "2 x 500mg",
+      "description": "Take 1 capsule twice a day, once mid afternood and once before bed"
+    },
+    {
+      "code": "theanine",
+      "name": "Theanine",
+      "amount": "200mg",
+      "description": "Take 1 capsule twice a day, once mid afternood and once before bed"
+    },
+    //dopamine
+    {
+      "code": "tyrosine",
+      "name": "L-Tyrosine",
+      "amount": "",
+      "description": ""
+    },
+    {
+      "code": "phenylalanine",
+      "name": "dl-Phenylalanine",
+      "amount": "",
+      "description": ""
+    },
+    //hormones
+    {
+      "code": "chromium",
+      "name": "Chromium",
+      "amount": "",
+      "description": ""
+    },
+    {
+      "code": "glucomannan",
+      "name": "Glucomannan fiber (PGX)",
+      "amount": "",
+      "description": ""
+    },
+    //menstrual
+    {
+      "code": "primrose",
+      "name": "Evening primrose oil",
+      "amount": "",
+      "description": ""
+    },
+    {
+      "code": "chasteberry",
+      "name": "Chasteberry",
+      "amount": "",
+      "description": ""
+    },
+    {
+      "code": "dim",
+      "name": "DIM",
+      "amount": "",
+      "description": ""
+    },
+    //menopausal
+    {
+      "code": "cohosh",
+      "name": "Black cohosh",
+      "amount": "",
+      "description": ""
+    },
+    //immune
+    {
+      "code": "turmeric",
+      "name": "Turmeric",
+      "amount": "",
+      "description": ""
+    },
+    {
+      "code": "quercetin",
+      "name": "Quercetin",
+      "amount": "",
+      "description": ""
+    },
+    {
+      "code": "resveratrol",
+      "name": "Resveratrol",
+      "amount": "",
+      "description": ""
+    },
+    //digestion
+    {
+      "code": "enzymes",
+      "name": "Digestive enzymes (proteases, amylases, lipases and DPP IV)",
+      "amount": "",
+      "description": ""
+    },
+    {
+      "code": "saccharomyces",
+      "name": "Saccharomyces bouldardii",
+      "amount": "",
+      "description": ""
+    },
+    {
+      "code": "glutamine",
+      "name": "Glutamine",
+      "amount": "",
+      "description": ""
+    },
+    //detoxification
+    {
+      "code": "nac",
+      "name": "N-acetylcysteine",
+      "amount": "",
+      "description": ""
+    },
+    {
+      "code": "vitaminC",
+      "name": "Buffered ascorbic acid (vitamin C)",
+      "amount": "",
+      "description": ""
+    },
+    {
+      "code": "thistle",
+      "name": "Milk thistle",
+      "amount": "",
+      "description": ""
+    },
+    //metabolism
+    {
+      "code": "q10",
+      "name": "Coenzyme Q10",
+      "amount": "",
+      "description": ""
+    },
+    {
+      "code": "ribose",
+      "name": "D-Ribose powder",
+      "amount": "",
+      "description": ""
+    },
+    {
+      "code": "mitochondria",
+      "name": "Mitochondria support combination",
+      "amount": "",
+      "description": ""
+    },
+    //calm
+    {
+      "code": "rhodiola",
+      "name": "Rhodiola root extract",
+      "amount": "",
+      "description": ""
+    },
+    {
+      "code": "sginseng",
+      "name": "Siberian ginseng",
+      "amount": "",
+      "description": ""
+    },
+    //digestion
+    {
+      "code": "betaine",
+      "name": "Betaine HCl",
+      "amount": "",
+      "description": ""
+    },
+    //metabolism
+    {
+      "code": "carnitine",
+      "name": "Acetyl L-carnitine",
+      "amount": "",
+      "description": ""
+    },
+    {
+      "code": "lipoic",
+      "name": "Alpha lipoic acid",
+      "amount": "",
+      "description": ""
+    },
+    {
+      "code": "nadh",
+      "name": "Co-E1 NADH",
+      "amount": "",
+      "description": ""
+    },
+    //calm
+    {
+      "code": "aginseng",
+      "name": "Asian ginseng",
+      "amount": "",
+      "description": ""
+    }
+  ]
+}

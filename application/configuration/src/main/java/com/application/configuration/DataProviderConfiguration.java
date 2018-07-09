@@ -8,6 +8,8 @@ import com.application.dataproviders.session.SessionDataMapper;
 import com.application.dataproviders.session.SessionRepository;
 import com.application.dataproviders.sheet.SheetDataMapper;
 import com.application.dataproviders.sheet.SheetRepository;
+import com.application.dataproviders.supplement.SupplementDataMapper;
+import com.application.dataproviders.supplement.SupplementRepository;
 import com.application.dataproviders.user.UserDataMapper;
 import com.application.dataproviders.user.UserRepository;
 import lombok.AllArgsConstructor;
@@ -41,6 +43,11 @@ public class DataProviderConfiguration {
     @Bean
     public SessionDataMapper sessionDataMapper(SessionRepository s) {
         return new SessionDataMapper(s);
+    }
+
+    @Bean
+    public SupplementDataMapper supplementDataMapper(SupplementRepository s) {
+        return new SupplementDataMapper(s);
     }
 
 }

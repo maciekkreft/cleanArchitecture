@@ -8,6 +8,8 @@ import com.application.core.session.SessionDataGateway;
 import com.application.core.session.SessionUseCase;
 import com.application.core.sheet.SheetDataGateway;
 import com.application.core.sheet.SheetUseCase;
+import com.application.core.supplement.SupplementDataGateway;
+import com.application.core.supplement.SupplementUseCase;
 import com.application.core.user.UserDataGateway;
 import com.application.core.user.UserUseCase;
 import org.springframework.context.annotation.Bean;
@@ -16,34 +18,32 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class UseCaseConfiguration {
     @Bean
-    public PollUseCase pollUseCase(PollDataGateway pollDataGateway,
-                                   CategoryDataGateway categoryDataGateway
-    ) {
-        return new PollUseCase(pollDataGateway, categoryDataGateway);
+    public PollUseCase pollUseCase(PollDataGateway p, CategoryDataGateway c) {
+        return new PollUseCase(p, c);
     }
 
     @Bean
-    public CategoryUseCase categoryUseCase(CategoryDataGateway categoryDataGateway) {
-        return new CategoryUseCase(categoryDataGateway);
+    public CategoryUseCase categoryUseCase(CategoryDataGateway c) {
+        return new CategoryUseCase(c);
     }
 
     @Bean
-    public UserUseCase userUseCase(UserDataGateway userDataGateway,
-                                   SessionUseCase sessionUseCase
-    ) {
-        return new UserUseCase(userDataGateway, sessionUseCase);
+    public UserUseCase userUseCase(UserDataGateway u, SessionUseCase s) {
+        return new UserUseCase(u, s);
     }
 
     @Bean
-    public SheetUseCase sheetUseCase(SheetDataGateway sheetDataGateway,
-                                     PollDataGateway pollDataGateway,
-                                     UserDataGateway userDataGateway
-    ) {
-        return new SheetUseCase(sheetDataGateway, pollDataGateway, userDataGateway);
+    public SheetUseCase sheetUseCase(SheetDataGateway s, PollDataGateway p, UserDataGateway u) {
+        return new SheetUseCase(s, p, u);
     }
 
     @Bean
-    public SessionUseCase sessionUseCase(SessionDataGateway sessionDataGateway) {
-        return new SessionUseCase(sessionDataGateway);
+    public SupplementUseCase supplementUseCase(SupplementDataGateway s) {
+        return new SupplementUseCase(s);
+    }
+
+    @Bean
+    public SessionUseCase sessionUseCase(SessionDataGateway s) {
+        return new SessionUseCase(s);
     }
 }

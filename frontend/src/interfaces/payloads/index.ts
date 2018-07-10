@@ -4,7 +4,11 @@ interface Category {
 }
 
 interface Question {
-  [p: number]: string
+  [index: number]: string
+}
+
+interface Answer {
+  [index: number]: string
 }
 
 interface Poll {
@@ -14,6 +18,11 @@ interface Poll {
   questions: Question[]
   mediumScore: number
   highScore: number
+}
+
+export interface Answers {
+  pollCode: string
+  answers: Answer[]
 }
 
 export type Polls = Poll[]

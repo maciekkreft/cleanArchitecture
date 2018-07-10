@@ -4,7 +4,8 @@ import {
 import { KeyboardArrowLeft, KeyboardArrowRight } from '@material-ui/icons'
 import * as React from 'react'
 import SwipeableViews from 'react-swipeable-views'
-import { Action, State } from '../interfaces';
+import { Action, Payload, State } from '../interfaces';
+import { PostAnswersAction } from '../usecases/sheets/actions';
 
 const styles = (theme: Theme) => createStyles({
   root: {
@@ -33,7 +34,9 @@ interface Props {
   theme: Theme
   poll: State.Poll
   sheet: State.Sheet
+  answers: Payload.Answers
   addAnswer: (payload: Action.AnswerPayload) => void
+  saveAnswers: () => Promise<PostAnswersAction>
 }
 
 interface S {
@@ -67,7 +70,9 @@ class SwipeableTextMobileStepper extends React.Component<Props, S> {
       pollCode: this.props.poll.code,
       value
     })
-    this.handleNext()
+    if (this.state.activeStep < this.props.poll.questions.length - 1) {
+      this.handleNext()
+    }
   }
 
   public handleNo = () => {
@@ -76,6 +81,10 @@ class SwipeableTextMobileStepper extends React.Component<Props, S> {
 
   public handleYes = () => {
     this.handleAnswer(true)
+  }
+
+  public handleSaveAnswers = () => {
+    this.props.saveAnswers()
   }
 
   public render() {
@@ -126,6 +135,14 @@ class SwipeableTextMobileStepper extends React.Component<Props, S> {
               </Button>
             }
           />
+          {
+            activeStep === maxSteps - 1
+            && <Paper className={classes.actions}>
+              <Button color="secondary" variant="outlined" onClick={this.handleSaveAnswers}>
+                Save and get results
+              </Button>
+            </Paper>
+          }
         </div>
         : null
     )

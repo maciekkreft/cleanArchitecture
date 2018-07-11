@@ -8,13 +8,24 @@ export const PollListScreen = () =>
   <React.Fragment>
     <Header />
     <PollsList />
-    <Navigation />
+    <Navigation tab={0} />
   </React.Fragment>
-
 
 export const PollScreen = () =>
   <React.Fragment>
     <Header />
     <PollWithSheet />
-    <Navigation />
+    <Navigation tab={0} />
+  </React.Fragment>
+
+export const ResultScreen = () =>
+  <React.Fragment>
+    <Header />
+    <Navigation tab={1} />
+  </React.Fragment>
+
+export const ProgressScreen = () =>
+  <React.Fragment>
+    <Header />
+    <Navigation tab={1} />
   </React.Fragment>

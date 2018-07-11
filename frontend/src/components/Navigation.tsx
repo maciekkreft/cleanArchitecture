@@ -1,15 +1,26 @@
-import * as React from 'react'
-
 import {
-  BottomNavigation,
-  BottomNavigationAction,
-  withStyles
+  BottomNavigation, BottomNavigationAction, withStyles
 } from '@material-ui/core'
-
 import {
-  Assignment as PollsIcon,
-  TrendingUp as ResultsIcon
+  Assignment as PollsIcon, TrendingUp as ResultsIcon
 } from '@material-ui/icons'
+import * as React from 'react'
+import { Link, match as Match, withRouter } from 'react-router-dom'
+import { compose } from 'redux'
+
+interface StyleProps {
+  classes: any
+}
+
+interface RouterProps {
+  match: Match<{ code?: string }>
+  history: any
+  location: any
+}
+
+interface Props {
+  tab: number
+}
 
 const styles: any = {
   root: {
@@ -19,18 +30,11 @@ const styles: any = {
   },
 }
 
-interface Props {
-  classes: any;
-}
-
-class SimpleNavigation extends React.Component<Props, object> {
-  public state = {
-    value: 0,
-  }
+class SimpleNavigation extends React.Component<Props & StyleProps & RouterProps, object> {
 
   public render() {
-    const { classes } = this.props
-    const { value } = this.state
+    const { classes, tab } = this.props
+    const value = tab
 
     return (
       <BottomNavigation
@@ -39,8 +43,12 @@ class SimpleNavigation extends React.Component<Props, object> {
         showLabels={true}
         className={classes.root}
       >
-        <BottomNavigationAction label="Ankiety" icon={<PollsIcon />} />
-        <BottomNavigationAction label="Wyniki" icon={<ResultsIcon />} />
+        <BottomNavigationAction label="Ankiety"
+          icon={<PollsIcon />} component={Link} to="/polls"
+        />
+        <BottomNavigationAction label="Wyniki"
+          icon={<ResultsIcon />} component={Link} to="/results"
+        />
       </BottomNavigation>
     )
   }
@@ -50,4 +58,17 @@ class SimpleNavigation extends React.Component<Props, object> {
   }
 }
 
-export const NavigationComponent = withStyles(styles)(SimpleNavigation)
+export const NavigationComponent =
+  compose(
+    withRouter
+  )<Props & Partial<StyleProps> & RouterProps>(
+    withStyles(styles)(SimpleNavigation)
+  )
+
+declare global {
+  namespace JSX {
+    interface IntrinsicAttributes {
+      to?: string
+    }
+  }
+}

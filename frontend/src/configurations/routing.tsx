@@ -9,6 +9,8 @@ export default () => (
       <Route exact path="/" component={Screens.InitScreen} />
       <Route exact path="/polls" component={Screens.PollListScreen} />
       <Route exact path="/polls/:code" component={Screens.PollScreen} />
+      <Route exact path="/results/:code" component={Screens.ResultScreen} />
+      <Route exact path="/results" component={Screens.ProgressScreen} />
     </React.Fragment>
   </Router>
 )

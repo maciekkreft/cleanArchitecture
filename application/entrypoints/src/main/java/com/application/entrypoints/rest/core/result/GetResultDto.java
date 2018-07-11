@@ -11,4 +11,5 @@ public class GetResultDto {
     private final long version;
     private final String pollCode;
     private final String result;
+    private final String createdAt;
 }

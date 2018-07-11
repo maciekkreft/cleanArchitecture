@@ -2,6 +2,7 @@ package com.application.entrypoints.rest.core.result;
 
 import com.application.core.result.ResultEntity;
 import com.application.core.result.ResultUseCase;
+import com.application.entrypoints.rest.common.DateHelper;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -45,7 +46,8 @@ public class ResultController {
         return new GetResultDto(
                 r.getVersion(),
                 r.getPollCode(),
-                r.getResult().name()
+                r.getDeficiency().name(),
+                DateHelper.toString(r.getCreatedAt())
         );
     }
 

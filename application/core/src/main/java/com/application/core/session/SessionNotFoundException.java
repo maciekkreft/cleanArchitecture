@@ -1,6 +1,6 @@
 package com.application.core.session;
 
-import com.application.core.ValidationException;
+import com.application.common.ValidationException;
 
 public class SessionNotFoundException extends ValidationException {
     public SessionNotFoundException(String sessionId) {

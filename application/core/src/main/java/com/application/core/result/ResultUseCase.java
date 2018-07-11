@@ -42,14 +42,15 @@ public class ResultUseCase {
         long h = poll.getHighScore();
         long s = sheet.getAnswers().stream().filter(a -> a.equals(true)).count();
 
-        ResultEntity.Result result = ResultEntity.Result.LOW_RISK;
-        if (s >= m) result = ResultEntity.Result.MEDIUM_RISK;
-        if (s >= h) result = ResultEntity.Result.HIGH_RISK;
+        ResultEntity.Deficiency result = ResultEntity.Deficiency.LOW;
+        if (s >= m) result = ResultEntity.Deficiency.MEDIUM;
+        if (s >= h) result = ResultEntity.Deficiency.HIGH;
 
         return new ResultEntity(
                 sheet.getVersion(),
                 poll.getCode(),
-                result
+                result,
+                sheet.getCreatedAt()
         );
     }
 }

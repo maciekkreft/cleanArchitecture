@@ -1,6 +1,6 @@
 package com.application.core.category;
 
-import com.application.core.ValidationException;
+import com.application.common.ValidationException;
 
 public class CategoryAlreadyExists extends ValidationException {
     public CategoryAlreadyExists(String categoryCode) {

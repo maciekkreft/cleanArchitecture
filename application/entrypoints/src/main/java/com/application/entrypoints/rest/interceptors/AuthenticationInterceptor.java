@@ -1,6 +1,6 @@
 package com.application.entrypoints.rest.interceptors;
 
-import com.application.core.ValidationException;
+import com.application.common.ValidationException;
 import com.application.core.user.UserUseCase;
 import com.application.entrypoints.rest.exceptions.UnauthorizedException;
 import lombok.AllArgsConstructor;

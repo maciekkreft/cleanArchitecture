@@ -1,6 +1,6 @@
 package com.application.core.user;
 
-import com.application.core.ValidationException;
+import com.application.common.ValidationException;
 
 public class UserWasNotRegisteredWithGivenSessionId extends ValidationException {
     public UserWasNotRegisteredWithGivenSessionId(Long userId, String sessionId) {

@@ -12,6 +12,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -61,7 +62,8 @@ public class SheetController {
                 null,
                 userId,
                 dto.getPollCode(),
-                dto.getAnswers()
+                dto.getAnswers(),
+                new Date()
         );
     }
 

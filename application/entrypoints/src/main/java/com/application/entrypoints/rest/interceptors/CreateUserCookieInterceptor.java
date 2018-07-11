@@ -1,6 +1,6 @@
 package com.application.entrypoints.rest.interceptors;
 
-import com.application.core.ValidationException;
+import com.application.common.ValidationException;
 import com.application.core.session.SessionUseCase;
 import com.application.core.user.UserEntity;
 import com.application.core.user.UserUseCase;

@@ -1,6 +1,6 @@
 package com.application.core.sheet;
 
-import com.application.core.ValidationException;
+import com.application.common.ValidationException;
 
 public class PollNotFoundException extends ValidationException {
     public PollNotFoundException(SheetEntity sheet) {

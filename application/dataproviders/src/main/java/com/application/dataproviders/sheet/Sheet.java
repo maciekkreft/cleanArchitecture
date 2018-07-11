@@ -3,12 +3,10 @@ package com.application.dataproviders.sheet;
 import com.application.dataproviders.IdRow;
 import com.application.dataproviders.poll.Poll;
 import com.application.dataproviders.user.User;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.List;
 
 @Data
@@ -27,10 +25,13 @@ public class Sheet extends IdRow {
     private final User user;
 
     @Column(nullable = false)
-    final Long version;
+    private final Long version;
 
     @ElementCollection
     private final List<Answer> answers;
+
+    @Column(nullable = false)
+    private final Date createdAt;
 
 }
 

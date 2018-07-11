@@ -8,6 +8,7 @@ import com.application.core.sheet.SheetDataGateway;
 import com.application.core.sheet.SheetEntity;
 import lombok.AllArgsConstructor;
 
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
@@ -58,7 +59,8 @@ public class SheetDataMapper implements SheetDataGateway {
                 sheet.getVersion(),
                 sheet.getUser().getId(),
                 sheet.getPoll().getCode(),
-                answers
+                answers,
+                sheet.getCreatedAt()
         );
     }
 
@@ -69,7 +71,7 @@ public class SheetDataMapper implements SheetDataGateway {
         List<Answer> answers = sheet.getAnswers().stream()
                 .map(s -> new Answer(s))
                 .collect(Collectors.toList());
-        return new Sheet(poll, user, version, answers);
+        return new Sheet(poll, user, version, answers, sheet.getCreatedAt());
     }
 
     private long nextVersion(SheetEntity sheet) {

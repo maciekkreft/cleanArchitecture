@@ -1,6 +1,6 @@
 package com.application.core.poll;
 
-import com.application.core.ValidationException;
+import com.application.common.ValidationException;
 
 public class PollAlreadyExists extends ValidationException {
     public PollAlreadyExists(String pollCode) {

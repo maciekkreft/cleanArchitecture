@@ -1,4 +1,4 @@
-package com.application.entrypoints.rest.core;
+package com.application.entrypoints.rest.core.init;
 
 import org.springframework.web.bind.annotation.*;
 

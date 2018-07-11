@@ -8,7 +8,7 @@ interface Question {
 }
 
 interface Answer {
-  [index: number]: string
+  [index: number]: boolean
 }
 
 interface Poll {

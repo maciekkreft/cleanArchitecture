@@ -5,9 +5,9 @@ import { compose, Dispatch } from 'redux'
 
 import { PollWithSheet as PollWithSheetComponent } from '../components'
 import { ApiContext } from '../contexts'
-import { Action, Api, Payload, State } from '../interfaces'
-import * as PollActions from '../usecases/polls/actions'
-import * as SheetActions from '../usecases/sheets/actions'
+import { Api, Payload, State } from '../interfaces'
+import * as PollActions from '../usecases/polls/actionCreator'
+import * as SheetActions from '../usecases/sheets/actionCreator'
 
 const mapStateToProps = (state: State.default): Partial<Props> => ({
   pollFor: code => state.polls.byCode[code],
@@ -31,8 +31,8 @@ interface Props {
   pollFor: (code: string) => State.Poll
   sheetFor: (code: string) => State.Sheet
   getPolls: (api: Api) => Promise<PollActions.GetPollsActions>
-  addAnswer: (payload: Action.AnswerPayload) => void
-  saveAnswers: (api: Api) => (answers: Payload.Answers) => Promise<SheetActions.PostAnswersAction>
+  addAnswer: (payload: Payload.Answers) => void
+  saveAnswers: (api: Api) => (answers: Payload.Answers) => Promise<SheetActions.AddAnswersAction>
 }
 
 class PollWithSheet extends React.Component<Props & RouterProps> {

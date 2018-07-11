@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
 
 import { State } from '../../interfaces'
-import * as Actions from '../polls/actions'
+import * as Actions from '../polls/actionCreator'
 import normalize from '../polls/schema'
 
 const byCode = (

@@ -1,4 +1,4 @@
-import * as Actions from './actions'
+import * as Actions from './actionCreator'
 
 export default (state: boolean = false, action: Actions.GetInitActions) => {
   switch (action.type) {

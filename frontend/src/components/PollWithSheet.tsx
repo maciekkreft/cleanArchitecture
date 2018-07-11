@@ -1,16 +1,14 @@
-import {
-  Button, createStyles, MobileStepper, Paper, Theme, Typography, withStyles
-} from '@material-ui/core'
-import { KeyboardArrowLeft, KeyboardArrowRight } from '@material-ui/icons'
+import { Button, createStyles, MobileStepper, Paper, Theme, Typography, withStyles } from '@material-ui/core'
+import { KeyboardArrowLeft as Left, KeyboardArrowRight as Right } from '@material-ui/icons'
 import * as React from 'react'
-import SwipeableViews from 'react-swipeable-views'
-import { Action, Payload, State } from '../interfaces';
-import { PostAnswersAction } from '../usecases/sheets/actions';
+import SwipeableViews, { SpringConfig } from 'react-swipeable-views'
+
+import { Payload, State } from '../interfaces';
+import { AddAnswersAction } from '../usecases/sheets/actionCreator';
 
 const styles = (theme: Theme) => createStyles({
   root: {
-    // maxWidth: 400,
-    marginTop: theme.spacing.unit * 2,
+    marginTop: theme.spacing.unit * 1,
     flexGrow: 1,
   },
   header: {
@@ -19,13 +17,19 @@ const styles = (theme: Theme) => createStyles({
     textAlign: 'center',
     height: 50,
     padding: theme.spacing.unit * 4,
+    marginTop: 20,
     marginBottom: 20,
     backgroundColor: theme.palette.background.default,
   },
   actions: {
-    padding: theme.spacing.unit * 4,
-    // margin: theme.spacing.unit * 4,
+    alignItems: 'center',
     textAlign: 'center',
+    padding: theme.spacing.unit * 1,
+    marginBottom: theme.spacing.unit * 1,
+    backgroundColor: theme.palette.background.default,
+  },
+  buttons: {
+    margin: theme.spacing.unit * 1,
   }
 })
 
@@ -35,52 +39,54 @@ interface Props {
   poll: State.Poll
   sheet: State.Sheet
   answers: Payload.Answers
-  addAnswer: (payload: Action.AnswerPayload) => void
-  saveAnswers: () => Promise<PostAnswersAction>
+  addAnswer: (payload: Payload.Answers) => void
+  saveAnswers: () => Promise<AddAnswersAction>
 }
 
 interface S {
-  activeStep: number
+  currentIndex: number
 }
 
 class SwipeableTextMobileStepper extends React.Component<Props, S> {
+
   public state = {
-    activeStep: 0,
+    currentIndex: 0
   }
 
-  public handleNext = () => {
+  public handleChangeIndex = (currentIndex: number) => {
+    this.setState({ currentIndex })
+  }
+
+  public handleMoveBackward = () => {
+    const minIndex = 0
     this.setState(prevState => ({
-      activeStep: prevState.activeStep + 1,
+      currentIndex: Math.max(prevState.currentIndex - 1, minIndex)
     }))
   }
 
-  public handleBack = () => {
+  public handleMoveForward = () => {
+    const maxIndex = this.props.poll.questions.length - 1
     this.setState(prevState => ({
-      activeStep: prevState.activeStep - 1,
+      currentIndex: Math.min(prevState.currentIndex + 1, maxIndex)
     }))
   }
 
-  public handleStepChange = (activeStep: number) => {
-    this.setState({ activeStep })
-  }
-
-  public handleAnswer = (value: boolean) => {
+  public handleAnswer = (value: boolean, index: number) => {
     this.props.addAnswer({
-      index: this.state.activeStep,
       pollCode: this.props.poll.code,
-      value
+      answers: [
+        { [index]: value }
+      ]
     })
-    if (this.state.activeStep < this.props.poll.questions.length - 1) {
-      this.handleNext()
-    }
+    this.handleMoveForward()
   }
 
-  public handleNo = () => {
-    this.handleAnswer(false)
+  public handleAnswerYes = (index: number) => {
+    this.handleAnswer(true, index)
   }
 
-  public handleYes = () => {
-    this.handleAnswer(true)
+  public handleAnswerNo = (index: number) => {
+    this.handleAnswer(false, index)
   }
 
   public handleSaveAnswers = () => {
@@ -88,63 +94,113 @@ class SwipeableTextMobileStepper extends React.Component<Props, S> {
   }
 
   public render() {
-    const { classes, theme, poll, sheet } = this.props
-    const { activeStep } = this.state
+    const { currentIndex } = this.state
+    const {
+      poll = { questions: [] as string[] },
+      sheet = {},
+      classes
+    } = this.props
 
-    const steps = poll ? poll.questions.map(q => ({ 'label': q })) : []
-    const maxSteps = steps.length
+    const questions = poll.questions.map((q, idx) => ({ idx, label: q }))
+
+    const isAnswerNo = (index: number) => sheet[index] === false
+    const isAnswerYes = (index: number) => sheet[index] === true
+
+    const canMoveBackward = currentIndex !== 0 &&
+      (isAnswerNo(currentIndex - 1) || isAnswerYes(currentIndex - 1))
+    const canMoveForward = (currentIndex !== questions.length - 1) &&
+      (isAnswerNo(currentIndex) || isAnswerYes(currentIndex))
+
+    const missingAnswersCount = questions.length - Object.keys(this.props.sheet || []).length
+    const canSaveAnswers = missingAnswersCount === 0
+    const canShowSaveAnswers = (canSaveAnswers || currentIndex === questions.length - 1) &&
+      (isAnswerNo(questions.length - 1) || isAnswerYes(questions.length - 1))
+
+    const springConfig: SpringConfig = {
+      duration: '0.0s', // 0.4s
+      easeFunction: 'ease-in',
+      delay: '0.0s' // 0.2s
+    }
 
     return (
-      poll
-        ? <div className={classes.root}>
-          <SwipeableViews
-            axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
-            index={this.state.activeStep}
-            onChangeIndex={this.handleStepChange}
-            enableMouseEvents
-          >
-            {steps.map(step => (
-              <React.Fragment key={step.label}>
-                <Paper key={step.label} square elevation={0} className={classes.header}>
-                  <Typography variant="subheading">{step.label}</Typography>
+      < React.Fragment >
+        <SwipeableViews
+          axis='x'
+          index={currentIndex}
+          onChangeIndex={this.handleChangeIndex}
+          disabled={!(isAnswerNo(currentIndex) || isAnswerYes(currentIndex))}
+          className={classes.root}
+          springConfig={springConfig}
+          enableMouseEvents
+        >
+          {
+            questions.map(question => (
+              <React.Fragment key={question.idx}>
+                <Paper square className={classes.header}>
+                  <Typography variant='subheading'>{question.label}</Typography>
                 </Paper>
                 <Paper className={classes.actions}>
-                  <Button
-                    variant={(sheet && sheet[activeStep] === false) ? 'contained' : 'outlined'}
-                    color="primary" onClick={this.handleNo}>No</Button>
-                  <Button
-                    variant={(sheet && sheet[activeStep] === true) ? 'contained' : 'outlined'}
-                    color="primary" onClick={this.handleYes}>Yes</Button>
+                  <Button variant={isAnswerNo(question.idx) ? 'contained' : 'outlined'}
+                    color='primary' className={classes.buttons} size='large'
+                    // tslint:disable-next-line:jsx-no-lambda
+                    onClick={() => this.handleAnswerNo(question.idx)}
+                  >
+                    No
+                  </Button>
+                  <Button variant={isAnswerYes(question.idx) ? 'contained' : 'outlined'}
+                    color='primary' className={classes.buttons} size='large'
+                    // tslint:disable-next-line:jsx-no-lambda
+                    onClick={() => this.handleAnswerYes(question.idx)}
+                  >
+                    Yes
+                  </Button>
                 </Paper>
               </React.Fragment>
-            ))}
-          </SwipeableViews>
-          <MobileStepper
-            steps={maxSteps}
-            position="static"
-            activeStep={activeStep}
-            className={classes.mobileStepper}
-            backButton={
-              <Button size="small" onClick={this.handleBack} disabled={activeStep === 0}>
-                {theme.direction === 'rtl' ? <KeyboardArrowRight /> : <KeyboardArrowLeft />}
-              </Button>
-            }
-            nextButton={
-              <Button size="small" onClick={this.handleNext} disabled={activeStep === maxSteps - 1}>
-                {theme.direction === 'rtl' ? <KeyboardArrowLeft /> : <KeyboardArrowRight />}
-              </Button>
-            }
-          />
-          {
-            activeStep === maxSteps - 1
-            && <Paper className={classes.actions}>
-              <Button color="secondary" variant="outlined" onClick={this.handleSaveAnswers}>
-                Save and get results
-              </Button>
-            </Paper>
+            ))
           }
-        </div>
-        : null
+        </SwipeableViews>
+        <MobileStepper
+          steps={questions.length}
+          position='static'
+          activeStep={currentIndex}
+          className={classes.mobileStepper}
+          backButton={
+            <Button
+              onClick={this.handleMoveBackward}
+              disabled={!canMoveBackward}
+              size='small'
+              children={<Left />}
+            />
+          }
+          nextButton={
+            <Button
+              onClick={this.handleMoveForward}
+              disabled={!canMoveForward}
+              size='small'
+              children={<Right />}
+            />
+          }
+        />
+        <Paper
+          hidden={!canShowSaveAnswers}
+          className={classes.actions}>
+          {!canSaveAnswers &&
+            <Typography color='error'>
+              Fill {missingAnswersCount} missing answers
+            </Typography>
+          }
+          <Button
+            size='large'
+            style={{ marginTop: 10 }}
+            color='secondary'
+            variant='contained'
+            disabled={!canSaveAnswers}
+            onClick={this.handleSaveAnswers}
+          >
+            Save Answers
+          </Button>
+        </Paper>
+      </React.Fragment >
     )
   }
 }

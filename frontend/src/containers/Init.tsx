@@ -5,7 +5,7 @@ import { Dispatch } from 'redux'
 
 import { ApiContext } from '../contexts'
 import { Api, State } from '../interfaces'
-import * as Action from '../usecases/init/actions'
+import * as Action from '../usecases/init/actionCreator'
 
 interface Props {
   api: Api

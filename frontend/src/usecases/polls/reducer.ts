@@ -2,7 +2,7 @@ import { groupBy } from 'lodash'
 import { combineReducers } from 'redux'
 
 import { State } from '../../interfaces'
-import * as Actions from './actions'
+import * as Actions from './actionCreator'
 import normalize from './schema'
 
 const byCode = (

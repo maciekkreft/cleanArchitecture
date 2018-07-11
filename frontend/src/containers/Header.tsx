@@ -5,7 +5,7 @@ import { Dispatch } from 'redux'
 import { AppBar } from '../components'
 import { ApiContext } from '../contexts'
 import { Api, State } from '../interfaces'
-import * as Action from '../usecases/polls/actions'
+import * as Action from '../usecases/polls/actionCreator'
 import * as Selector from '../usecases/polls/reducer'
 
 const mapStateToProps = (state: State.default): Partial<Props> => ({

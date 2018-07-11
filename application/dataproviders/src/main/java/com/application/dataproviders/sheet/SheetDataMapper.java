@@ -19,13 +19,23 @@ public class SheetDataMapper implements SheetDataGateway {
     private final UserRepository userRepository;
 
     @Override
-    public SheetEntity addSheet(SheetEntity sheet) {
+    public SheetEntity addVersion(SheetEntity sheet) {
         return toEntity(sheetRepository.save(toRow(sheet)));
     }
 
     @Override
-    public List<SheetEntity> findAllByPollCodeAndUserId(String pollCode, Long userId) {
+    public List<SheetEntity> findAllVersions(String pollCode, Long userId) {
         return toEntity(sheetRepository.findAllByPollCodeAndUserId(pollCode, userId));
+    }
+
+    @Override
+    public SheetEntity findOneVersion(Long version, String pollCode, Long userId) {
+        return toEntity(sheetRepository.findOneByVersionAndPollCodeAndUserId(version, pollCode, userId));
+    }
+
+    @Override
+    public SheetEntity findLastVersion(String pollCode, Long userId) {
+        return toEntity(sheetRepository.findTopByPollCodeAndUserIdOrderByVersionDesc(pollCode, userId));
     }
 
     public List<SheetEntity> toEntity(List<Sheet> sheets) {
@@ -57,7 +67,9 @@ public class SheetDataMapper implements SheetDataGateway {
     }
 
     private long nextVersion(SheetEntity sheet) {
-        Sheet sheetWithMaxVersion = sheetRepository.findTopByPollCodeOrderByVersionDesc(sheet.getPollCode());
+        Sheet sheetWithMaxVersion = sheetRepository.findTopByPollCodeAndUserIdOrderByVersionDesc(
+                sheet.getPollCode(), sheet.getUserId()
+        );
         long maxVersion = sheetWithMaxVersion != null ? sheetWithMaxVersion.getVersion() : -1L;
         return maxVersion + 1L;
     }

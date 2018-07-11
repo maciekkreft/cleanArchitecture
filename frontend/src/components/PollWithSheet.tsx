@@ -90,6 +90,9 @@ class SwipeableTextMobileStepper extends React.Component<Props, S> {
   }
 
   public handleSaveAnswers = () => {
+    this.setState({
+      currentIndex: 0
+    })
     this.props.saveAnswers()
   }
 
@@ -106,8 +109,7 @@ class SwipeableTextMobileStepper extends React.Component<Props, S> {
     const isAnswerNo = (index: number) => sheet[index] === false
     const isAnswerYes = (index: number) => sheet[index] === true
 
-    const canMoveBackward = currentIndex !== 0 &&
-      (isAnswerNo(currentIndex - 1) || isAnswerYes(currentIndex - 1))
+    const canMoveBackward = currentIndex !== 0
     const canMoveForward = (currentIndex !== questions.length - 1) &&
       (isAnswerNo(currentIndex) || isAnswerYes(currentIndex))
 

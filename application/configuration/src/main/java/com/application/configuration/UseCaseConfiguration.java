@@ -4,6 +4,7 @@ import com.application.core.category.CategoryDataGateway;
 import com.application.core.category.CategoryUseCase;
 import com.application.core.poll.PollDataGateway;
 import com.application.core.poll.PollUseCase;
+import com.application.core.result.ResultUseCase;
 import com.application.core.session.SessionDataGateway;
 import com.application.core.session.SessionUseCase;
 import com.application.core.sheet.SheetDataGateway;
@@ -45,5 +46,10 @@ public class UseCaseConfiguration {
     @Bean
     public SessionUseCase sessionUseCase(SessionDataGateway s) {
         return new SessionUseCase(s);
+    }
+
+    @Bean
+    public ResultUseCase resultUseCase(SheetDataGateway s, PollDataGateway p) {
+        return new ResultUseCase(s, p);
     }
 }

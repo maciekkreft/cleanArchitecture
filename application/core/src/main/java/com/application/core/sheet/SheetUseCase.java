@@ -13,7 +13,7 @@ public class SheetUseCase {
     private final UserDataGateway userDataGateway;
 
     public List<SheetEntity> listSheetsByPollAndUser(String pollCode, Long userId) {
-        return sheetDataGateway.findAllByPollCodeAndUserId(pollCode, userId);
+        return sheetDataGateway.findAllVersions(pollCode, userId);
     }
 
     public SheetEntity addSheet(SheetEntity sheet) {
@@ -28,7 +28,7 @@ public class SheetUseCase {
         if(a != q) {
             throw new MissingAnswersInSheet(sheet, a, q);
         }
-        return sheetDataGateway.addSheet(sheet);
+        return sheetDataGateway.addVersion(sheet);
     }
 
 }

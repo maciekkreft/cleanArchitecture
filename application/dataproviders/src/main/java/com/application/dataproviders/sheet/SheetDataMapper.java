@@ -10,6 +10,7 @@ import lombok.AllArgsConstructor;
 
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 @AllArgsConstructor
 public class SheetDataMapper implements SheetDataGateway {
@@ -21,6 +22,11 @@ public class SheetDataMapper implements SheetDataGateway {
     @Override
     public SheetEntity addVersion(SheetEntity sheet) {
         return toEntity(sheetRepository.save(toRow(sheet)));
+    }
+
+    @Override
+    public List<SheetEntity> findAll(Long userId) {
+        return toEntity(sheetRepository.findAll());
     }
 
     @Override
@@ -38,8 +44,8 @@ public class SheetDataMapper implements SheetDataGateway {
         return toEntity(sheetRepository.findTopByPollCodeAndUserIdOrderByVersionDesc(pollCode, userId));
     }
 
-    public List<SheetEntity> toEntity(List<Sheet> sheets) {
-        return sheets.stream()
+    public List<SheetEntity> toEntity(Iterable<Sheet> sheets) {
+        return StreamSupport.stream(sheets.spliterator(), false)
                 .map(s -> toEntity(s))
                 .collect(Collectors.toList());
     }

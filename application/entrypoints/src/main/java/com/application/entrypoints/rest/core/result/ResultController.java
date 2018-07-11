@@ -5,6 +5,9 @@ import com.application.core.result.ResultUseCase;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @AllArgsConstructor
 @RestController
 @RequestMapping("/results")
@@ -13,8 +16,15 @@ public class ResultController {
     private final ResultUseCase resultUseCase;
 
     @GetMapping
+    public List<GetResultDto> getAllResultsForUser(
+            @RequestAttribute Long userId
+    ) {
+        return toDto(resultUseCase.getAll(userId));
+    }
+
+    @GetMapping
     @RequestMapping("/{pollCode}/latest")
-    public GetResultDto getResult(
+    public GetResultDto getLatestVersion(
             @PathVariable String pollCode,
             @RequestAttribute Long userId
     ) {
@@ -23,7 +33,7 @@ public class ResultController {
 
     @GetMapping
     @RequestMapping("/{pollCode}/{sheetVersion}")
-    public GetResultDto getResultForVersion(
+    public GetResultDto getGivenVersion(
             @PathVariable String pollCode,
             @PathVariable Long sheetVersion,
             @RequestAttribute Long userId
@@ -37,6 +47,12 @@ public class ResultController {
                 r.getPollCode(),
                 r.getResult().name()
         );
+    }
+
+    private List<GetResultDto> toDto(List<ResultEntity> results) {
+        return results.stream()
+                .map(r -> toDto(r))
+                .collect(Collectors.toList());
     }
 
 }

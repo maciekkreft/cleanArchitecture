@@ -13,6 +13,10 @@ buildscript {
     }
 }
 apply plugin: "org.springframework.boot"
+
+jar {
+    enabled = true
+}
 // configure spring boot with gradle: end
 
 dependencies {

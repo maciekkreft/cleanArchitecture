@@ -1,7 +1,6 @@
 description = "Clean Architecture"
 
 subprojects {
-
     repositories {
         mavenLocal()
         mavenCentral()
@@ -15,6 +14,7 @@ subprojects {
         lombok_version = '1.18.0'
         java_uuid_generator_version = '3.1.5'
         fastjson_version = '1.2.47'
+        commons_io_version = '2.6'
     }
 
     ext.libs = [
@@ -33,7 +33,8 @@ subprojects {
                     "org.springframework.boot:spring-boot-starter-data-jpa:${springboot_version}",
                     "com.h2database:h2:${h2_version}",
                     "com.fasterxml.uuid:java-uuid-generator:${java_uuid_generator_version}",
-                    "com.alibaba:fastjson:${fastjson_version}"
+                    "com.alibaba:fastjson:${fastjson_version}",
+                    "commons-io:commons-io:${commons_io_version}"
             ],
 
             entrypoints  : [

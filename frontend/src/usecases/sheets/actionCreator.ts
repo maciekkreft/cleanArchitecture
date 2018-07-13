@@ -27,10 +27,11 @@ export const addAnswer = (dispatch: Dispatch<AddAnswersAction>) =>
     dispatch({ type: ADD_ANSWER, payload })
   }
 
-export const postAnswers = (dispatch: Dispatch<AddAnswersAction>) => (api: Api) => (answers: Payload.Answers) => {
-  dispatch({ type: POST_ANSWERS_REQUEST })
-  return api.postAnswers(answers).then(
-    (payload) => dispatch({ type: POST_ANSWERS_RESPONSE, payload }),
-    (error) => dispatch({ type: POST_ANSWERS_FAILURE })
-  )
-}
+export const postAnswers = (dispatch: Dispatch<AddAnswersAction>) =>
+  (api: Api) => (answers: Payload.Answers) => {
+    dispatch({ type: POST_ANSWERS_REQUEST })
+    return api.postAnswers(answers).then(
+      (payload) => dispatch({ type: POST_ANSWERS_RESPONSE, payload }),
+      (error) => dispatch({ type: POST_ANSWERS_FAILURE })
+    )
+  }

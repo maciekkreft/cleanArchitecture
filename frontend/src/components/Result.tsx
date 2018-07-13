@@ -1,8 +1,10 @@
-import * as React from 'react'
-
 import {
   Card, CardContent, CardHeader, List, ListItem, ListItemText, Typography, withStyles
 } from '@material-ui/core'
+import * as moment from 'moment'
+import * as React from 'react'
+
+import { State } from '../interfaces'
 
 interface StyleProps {
   classes: any
@@ -17,38 +19,51 @@ const styles: any = {
 
 interface Props {
   classes: any
+  result: State.Result
+  supplements: [State.Supplement] | State.Supplement[]
 }
 
 function Result(props: Props) {
-  const { classes } = props
+  const { classes, result, supplements = [] }: Props = props
+
+  if (!result) {
+    return null
+  }
+
+  const deficiencyLevels = {
+    LOW: 'low',
+    MEDIUM: 'medium',
+    HIGH: 'high'
+  }
+  const recommendation = {
+    LOW: 'You dont need supplementation',
+    MEDIUM: 'You may consider supplementation',
+    HIGH: 'You should consider supplementation'
+  }
+  const deficiencyDescription = `Your ${result.pollCode} deficiency level is ${deficiencyLevels[result.deficiency]} `
+  const when = moment(result.createdAt, 'YYYY-MM-DD hh:mm:ss').fromNow()
   return (
     <div>
       <Card className={classes.card}>
-        <CardHeader title='Your deficiency is very high' />
+        <CardHeader title={deficiencyDescription} subheader={when} />
         <CardContent>
-          <Typography component='p'>You should consider using supplementation</Typography>
+          <Typography component='p'>{recommendation[result.deficiency]}</Typography>
         </CardContent>
       </Card>
-      <Card className={classes.card}>
-        <List>
-          <ListItem>
-            <ListItemText primary='Melatonin' secondary='1 x 1mg' />
-          </ListItem>
-          <ListItem>
-            <Typography component='p'>Take 1 capsule one hour before sleep</Typography>
-          </ListItem>
-        </List>
-      </Card>
-      <Card className={classes.card}>
-        <List>
-          <ListItem>
-            <ListItemText primary='Tryptophan' secondary='2 x 250mg' />
-          </ListItem>
-          <ListItem>
-            <Typography component='p'>Take 1 capsule two times a day</Typography>
-          </ListItem>
-        </List>
-      </Card>
+      {
+        supplements.map(s => (
+          <Card key={s.code} className={classes.card}>
+            <List>
+              <ListItem>
+                <ListItemText primary={s.name} secondary={s.dose} />
+              </ListItem>
+              <ListItem>
+                <Typography component='p'>{s.dosing}</Typography>
+              </ListItem>
+            </List>
+          </Card>
+        ))
+      }
       <br />
       <br />
       <br />

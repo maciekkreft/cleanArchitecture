@@ -19,4 +19,10 @@ public class Supplement extends IdRow {
 
     @Column(nullable = false)
     private final String name;
+
+    @Column(nullable = false)
+    private final String dose;
+
+    @Column(nullable = false)
+    private final String dosing;
 }

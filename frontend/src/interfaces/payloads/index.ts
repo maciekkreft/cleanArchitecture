@@ -20,9 +20,27 @@ interface Poll {
   highScore: number
 }
 
+export type Polls = Poll[]
+
 export interface Answers {
   pollCode: string
   answers: Answer[]
 }
 
-export type Polls = Poll[]
+export interface Result {
+  version: number
+  pollCode: string
+  deficiency: 'LOW' | 'MEDIUM' | 'HIGH'
+  createdAt: Date
+}
+
+export type Results = Result[]
+
+export interface Supplement {
+  code: string
+  name: string
+  dose: string
+  dosing: string
+}
+
+export type Supplements = Supplement[]

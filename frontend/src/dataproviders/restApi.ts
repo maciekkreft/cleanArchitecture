@@ -19,4 +19,12 @@ export class RestApi implements Api {
   public async postAnswers(answers: Payload.Answers): Promise<Payload.Answers> {
     return (await axios.post('/sheets', answers)).data
   }
+
+  public async getResults(): Promise<Payload.Results> {
+    return (await axios.get('/results')).data
+  }
+
+  public async getSupplements(): Promise<Payload.Supplements> {
+    return (await axios.get('/supplements')).data
+  }
 }

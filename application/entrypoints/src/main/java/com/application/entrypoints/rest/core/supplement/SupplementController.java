@@ -23,7 +23,7 @@ public class SupplementController {
 
     private List<GetSupplementDto> toDto(List<SupplementEntity> entities) {
         return entities.stream()
-                .map(e -> new GetSupplementDto(e.getCode(), e.getName()))
+                .map(e -> new GetSupplementDto(e.getCode(), e.getName(), e.getDose(), e.getDosing()))
                 .collect(Collectors.toList());
     }
 }

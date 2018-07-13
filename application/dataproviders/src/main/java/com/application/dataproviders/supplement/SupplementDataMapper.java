@@ -21,7 +21,9 @@ public class SupplementDataMapper implements SupplementDataGateway {
         return StreamSupport.stream(rows.spliterator(), false)
                 .map(r -> new SupplementEntity(
                         r.getCode(),
-                        r.getName()
+                        r.getName(),
+                        r.getDose(),
+                        r.getDosing()
                 ))
                 .collect(Collectors.toList());
     }

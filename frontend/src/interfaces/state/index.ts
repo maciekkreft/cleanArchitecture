@@ -22,6 +22,7 @@ export interface Poll {
   name: string
   category: string
   questions: string[]
+  supplements: string[]
   mediumScore: number
   highScore: number
 }
@@ -36,9 +37,38 @@ export interface Sheet {
   [index: number]: boolean
 }
 
+export interface Result {
+  version: number
+  pollCode: string
+  deficiency: 'LOW' | 'MEDIUM' | 'HIGH'
+  createdAt: string
+}
+
+export interface Results {
+  byCodeAndVersion: {
+    [pollCodeAndVersion: string]: Result
+  }
+}
+
+export interface Supplement {
+  code: string
+  name: string
+  dose: string
+  dosing: string
+}
+
+export interface Supplements {
+  byCode: {
+    [code: string]: Supplement
+  }
+}
+
+
 export default interface State {
   polls: Polls,
   categories: Categories,
   sheets: Sheets,
+  results: Results,
+  supplements: Supplements,
   initialized: boolean
 }

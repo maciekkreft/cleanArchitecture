@@ -1,279 +1,279 @@
+//CLEANCODE: correct dose and dosing
 {
   "supplements": [
     //basic
     {
       "code": "multivitamin",
       "name": "Multivitamin",
-      "amount": "",
-      "description": ""
+      "dose": "As prescribed",
+      "dosing": "Follow description on the bottle, or your health specialist"
     },
     {
       "code": "calcium",
       "name": "Calcium",
-      "amount": "",
-      "description": ""
+      "dose": "As prescribed",
+      "dosing": "Follow description on the bottle, or your health specialist"
     },
     {
       "code": "magnesium",
       "name": "Magnesium",
-      "amount": "",
-      "description": ""
+      "dose": "As prescribed",
+      "dosing": "Follow description on the bottle, or your health specialist"
     },
     {
       "code": "vitaminD3",
       "name": "Vitamin D3",
-      "amount": "",
-      "description": ""
+      "dose": "As prescribed",
+      "dosing": "Follow description on the bottle, or your health specialist"
     },
     {
       "code": "bcomplex",
       "name": "B complex vitamins",
-      "amount": "",
-      "description": ""
+      "dose": "As prescribed",
+      "dosing": "Follow description on the bottle, or your health specialist"
     },
     {
       "code": "omega3",
       "name": "Omega-3 fats",
-      "amount": "",
-      "description": ""
+      "dose": "As prescribed",
+      "dosing": "Follow description on the bottle, or your health specialist"
     },
     {
       "code": "probiotics",
       "name": "Probiotics",
-      "amount": "",
-      "description": ""
+      "dose": "As prescribed",
+      "dosing": "Follow description on the bottle, or your health specialist"
     },
     //phospholipid
     {
       "code": "ps",
       "name": "PS (phosphatidyl-serine)",
-      "amount": "2 x 240mg",
-      "description": "Take 2 capsule twice a day, once with breakfast and once with dinner, for two months. After two months, take 1 capsule twice a day, once with breakfast and once with dinner."
+      "dose": "2 x 240mg",
+      "dosing": "Take 2 capsule twice a day, once with breakfast and once with dinner, for two months. After two months, take 1 capsule twice a day, once with breakfast and once with dinner."
     },
     {
       "code": "pc",
       "name": "PC (phosphatidyl-choline)",
-      "amount": "",
-      "description": ""
+      "dose": "As prescribed",
+      "dosing": "Follow description on the bottle, or your health specialist"
     },
-
     //serotonine
     {
       "code": "5htp",
       "name": "5-HTP (5-hydroxy-tryptophan)",
-      "amount": "2 x 50mg",
-      "description": "Take 1 capsule twice a day, once mid afternoon and once before bed. Add additional capsule mid afternoon or at bedtime until you get to 150mg or 3 capsules total."
+      "dose": "2 x 50mg",
+      "dosing": "Take 1 capsule twice a day, once mid afternoon and once before bed. Add additional capsule mid afternoon or at bedtime until you get to 150mg or 3 capsules total."
     },
     {
       "code": "melatonin",
       "name": "Melatonin",
-      "amount": "1 x 2mg",
-      "description": "Take 1 capsule before bed"
+      "dose": "1 x 2mg",
+      "dosing": "Take 1 capsule before bed"
     },
     {
       "code": "gaba",
       "name": "GABA",
-      "amount": "2 x 500mg",
-      "description": "Take 1 capsule twice a day, once mid afternood and once before bed"
+      "dose": "2 x 500mg",
+      "dosing": "Take 1 capsule twice a day, once mid afternood and once before bed"
     },
     {
       "code": "theanine",
       "name": "Theanine",
-      "amount": "200mg",
-      "description": "Take 1 capsule twice a day, once mid afternood and once before bed"
+      "dose": "200mg",
+      "dosing": "Take 1 capsule twice a day, once mid afternood and once before bed"
     },
     //dopamine
     {
       "code": "tyrosine",
       "name": "L-Tyrosine",
-      "amount": "",
-      "description": ""
+      "dose": "As prescribed",
+      "dosing": "Follow description on the bottle, or your health specialist"
     },
     {
       "code": "phenylalanine",
       "name": "dl-Phenylalanine",
-      "amount": "",
-      "description": ""
+      "dose": "As prescribed",
+      "dosing": "Follow description on the bottle, or your health specialist"
     },
     //hormones
     {
       "code": "chromium",
       "name": "Chromium",
-      "amount": "",
-      "description": ""
+      "dose": "As prescribed",
+      "dosing": "Follow description on the bottle, or your health specialist"
     },
     {
       "code": "glucomannan",
       "name": "Glucomannan fiber (PGX)",
-      "amount": "",
-      "description": ""
+      "dose": "As prescribed",
+      "dosing": "Follow description on the bottle, or your health specialist"
     },
     //menstrual
     {
       "code": "primrose",
       "name": "Evening primrose oil",
-      "amount": "",
-      "description": ""
+      "dose": "As prescribed",
+      "dosing": "Follow description on the bottle, or your health specialist"
     },
     {
       "code": "chasteberry",
       "name": "Chasteberry",
-      "amount": "",
-      "description": ""
+      "dose": "As prescribed",
+      "dosing": "Follow description on the bottle, or your health specialist"
     },
     {
       "code": "dim",
       "name": "DIM",
-      "amount": "",
-      "description": ""
+      "dose": "As prescribed",
+      "dosing": "Follow description on the bottle, or your health specialist"
     },
     //menopausal
     {
       "code": "cohosh",
       "name": "Black cohosh",
-      "amount": "",
-      "description": ""
+      "dose": "As prescribed",
+      "dosing": "Follow description on the bottle, or your health specialist"
     },
     //immune
     {
       "code": "turmeric",
       "name": "Turmeric",
-      "amount": "",
-      "description": ""
+      "dose": "As prescribed",
+      "dosing": "Follow description on the bottle, or your health specialist"
     },
     {
       "code": "quercetin",
       "name": "Quercetin",
-      "amount": "",
-      "description": ""
+      "dose": "As prescribed",
+      "dosing": "Follow description on the bottle, or your health specialist"
     },
     {
       "code": "resveratrol",
       "name": "Resveratrol",
-      "amount": "",
-      "description": ""
+      "dose": "As prescribed",
+      "dosing": "Follow description on the bottle, or your health specialist"
     },
     //digestion
     {
       "code": "enzymes",
       "name": "Digestive enzymes (proteases, amylases, lipases and DPP IV)",
-      "amount": "",
-      "description": ""
+      "dose": "As prescribed",
+      "dosing": "Follow description on the bottle, or your health specialist"
     },
     {
       "code": "saccharomyces",
       "name": "Saccharomyces bouldardii",
-      "amount": "",
-      "description": ""
+      "dose": "As prescribed",
+      "dosing": "Follow description on the bottle, or your health specialist"
     },
     {
       "code": "glutamine",
       "name": "Glutamine",
-      "amount": "",
-      "description": ""
+      "dose": "As prescribed",
+      "dosing": "Follow description on the bottle, or your health specialist"
     },
     //detoxification
     {
       "code": "nac",
       "name": "N-acetylcysteine",
-      "amount": "",
-      "description": ""
+      "dose": "As prescribed",
+      "dosing": "Follow description on the bottle, or your health specialist"
     },
     {
       "code": "vitaminC",
       "name": "Buffered ascorbic acid (vitamin C)",
-      "amount": "",
-      "description": ""
+      "dose": "As prescribed",
+      "dosing": "Follow description on the bottle, or your health specialist"
     },
     {
       "code": "thistle",
       "name": "Milk thistle",
-      "amount": "",
-      "description": ""
+      "dose": "As prescribed",
+      "dosing": "Follow description on the bottle, or your health specialist"
     },
     //metabolism
     {
       "code": "q10",
       "name": "Coenzyme Q10",
-      "amount": "",
-      "description": ""
+      "dose": "As prescribed",
+      "dosing": "Follow description on the bottle, or your health specialist"
     },
     {
       "code": "ribose",
       "name": "D-Ribose powder",
-      "amount": "",
-      "description": ""
+      "dose": "As prescribed",
+      "dosing": "Follow description on the bottle, or your health specialist"
     },
     {
       "code": "mitochondria",
       "name": "Mitochondria support combination",
-      "amount": "",
-      "description": ""
+      "dose": "As prescribed",
+      "dosing": "Follow description on the bottle, or your health specialist"
     },
     //calm
     {
       "code": "rhodiola",
       "name": "Rhodiola root extract",
-      "amount": "",
-      "description": ""
+      "dose": "As prescribed",
+      "dosing": "Follow description on the bottle, or your health specialist"
     },
     {
       "code": "sginseng",
       "name": "Siberian ginseng",
-      "amount": "",
-      "description": ""
+      "dose": "As prescribed",
+      "dosing": "Follow description on the bottle, or your health specialist"
     },
     //digestion
     {
       "code": "betaine",
       "name": "Betaine HCl",
-      "amount": "",
-      "description": ""
+      "dose": "As prescribed",
+      "dosing": "Follow description on the bottle, or your health specialist"
     },
     //metabolism
     {
       "code": "carnitine",
       "name": "Acetyl L-carnitine",
-      "amount": "",
-      "description": ""
+      "dose": "As prescribed",
+      "dosing": "Follow description on the bottle, or your health specialist"
     },
     {
       "code": "lipoic",
       "name": "Alpha lipoic acid",
-      "amount": "",
-      "description": ""
+      "dose": "As prescribed",
+      "dosing": "Follow description on the bottle, or your health specialist"
     },
     {
       "code": "nadh",
       "name": "Co-E1 NADH",
-      "amount": "",
-      "description": ""
+      "dose": "As prescribed",
+      "dosing": "Follow description on the bottle, or your health specialist"
     },
     //calm
     {
       "code": "aginseng",
       "name": "Asian ginseng",
-      "amount": "",
-      "description": ""
+      "dose": "As prescribed",
+      "dosing": "Follow description on the bottle, or your health specialist"
     },
     //missing
     {
       "code": "ashwagandha",
       "name": "Ashwagandha",
-      "amount": "",
-      "description": ""
+      "dose": "As prescribed",
+      "dosing": "Follow description on the bottle, or your health specialist"
     },
     {
       "code": "tribulus",
       "name": "Tribulus",
-      "amount": "",
-      "description": ""
+      "dose": "As prescribed",
+      "dosing": "Follow description on the bottle, or your health specialist"
     },
     {
       "code": "zinc",
       "name": "Zinc",
-      "amount": "",
-      "description": ""
+      "dose": "As prescribed",
+      "dosing": "Follow description on the bottle, or your health specialist"
     }
   ]
 }

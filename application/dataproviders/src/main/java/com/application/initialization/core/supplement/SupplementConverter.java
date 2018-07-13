@@ -11,7 +11,12 @@ public class SupplementConverter {
     @NonNull
     public static List<Supplement> toRows(SupplementsJson jsonAsObject) {
         return jsonAsObject.getSupplements().stream()
-                .map(s -> new Supplement(s.getCode(), s.getName()))
+                .map(s -> new Supplement(
+                        s.getCode(),
+                        s.getName(),
+                        s.getDose(),
+                        s.getDosing()
+                ))
                 .collect(Collectors.toList());
     }
 }

@@ -1,8 +1,8 @@
 import { omit } from 'lodash'
-import { combineReducers } from "redux"
+import { combineReducers } from 'redux'
 
-import { State } from "../../interfaces"
-import { ADD_ANSWER, AddAnswersAction, POST_ANSWERS_RESPONSE } from "./actionCreator"
+import { State } from '../../interfaces'
+import { ADD_ANSWER, AddAnswersAction, POST_ANSWERS_RESPONSE } from './actionCreator'
 
 const byCode = (state: State.Sheets['byCode'] = {}, action: AddAnswersAction) => {
   switch (action.type) {

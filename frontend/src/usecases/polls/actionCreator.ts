@@ -14,8 +14,7 @@ export type GET_POLLS_FAILURE = typeof GET_POLLS_FAILURE
 export interface GetPollsRequest { type: GET_POLLS_REQUEST }
 
 export interface GetPollsResponse {
-  type: GET_POLLS_RESPONSE
-  payload: Payload.Polls
+  type: GET_POLLS_RESPONSE, payload: Payload.Polls
 }
 
 export interface GetPollsFailure { type: GET_POLLS_FAILURE }

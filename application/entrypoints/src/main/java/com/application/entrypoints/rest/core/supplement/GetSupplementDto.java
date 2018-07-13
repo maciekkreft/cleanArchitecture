@@ -10,4 +10,6 @@ import lombok.NoArgsConstructor;
 public class GetSupplementDto {
     private final String code;
     private final String name;
+    private final String dose;
+    private final String dosing;
 }
